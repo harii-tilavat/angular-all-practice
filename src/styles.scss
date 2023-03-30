@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '/node_modules/bootstrap/dist/css/bootstrap.min.css';
+.online{
+  color: white;
+  // display: none;
+}
+.offline{
+  color: yellow !important;
+}
+.bg-blue{
+  color: white;
+}
