@@ -2,7 +2,7 @@
   <div class="container">
     <button class="btn btn-dark" (click)="getItem()">Display Details</button>
     <h2 *ngIf="flag">Password is abc123</h2>
-    <p *ngFor="let item of items; let i=index" [ngStyle]="{backgroundColor:i>4?'blue':'transperent'}" [ngClass]="{'bg-blue':i>4}">{{item}}</p>
+    <p *ngFor="let item of items; let i=index" [ngStyle]="{backgroundColor:i>4?'blue':'transperent'}" [ngClass]="{'bg-blue':i>=4}">In {{i}} Index Value is: {{item}} </p>
 
     <!-- <p *ngFor="let i of item">{{i}}</p> -->
   </div>
