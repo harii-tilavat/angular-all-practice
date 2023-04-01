@@ -1,1 +1,86 @@
-<p>data-interchange works!</p>
+<!-- <div class="row">
+  <div class="col-6">
+    <div class="mb-3">
+      <label for="fname" class="form-label">Enter Your First Name</label>
+      <input type="email" class="form-control" id="fname" [value]="childName">
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mb-3">
+      <label for="lname" class="form-label ">Enter Your Last Name</label>
+      <input type="text" id="lname" class="form-control">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="mb-3">
+      <label for="number" class="form-label">Enter Number</label>
+      <input type="number" class="form-control" id="number" [value]="childNumber">
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mb-3">
+      <label for="email" class="form-label ">Enter Your Email</label>
+      <input type="text" id="email" class="form-control">
+    </div>
+  </div>
+</div> -->
+<div class="row">
+  <div class="col-12">
+    <h2>Regestration Form</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+    <div class="mb-3">
+      <label for="fname" >Enter First Name</label>
+      <input type="text" name="" id="fname" class="form-control" [(ngModel)]="name">
+    </div>
+  </div>
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+    <div class="mb-3">
+      <label for="lname" >Enter Last Name</label>
+      <input type="text" name="" id="lname" class="form-control" [(ngModel)]="sname">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+    <div class="mb-3">
+      <label for="email" >Enter Email</label>
+      <input type="text" name="" id="email" class="form-control" [(ngModel)]="email">
+    </div>
+  </div>
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+    <div class="mb-3">
+      <label for="number" >Enter Your Number</label>
+      <input type="text" name="" id="number" class="form-control" [(ngModel)]="number">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table  table-striped" >
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Number</th>
+      </tr>
+      <tr *ngFor="let item of data">
+        <td>{{item.name}}</td>
+        <td>{{item.sname}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.number}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <button class="btn btn-dark" (click)="addData()">
+      Add Data
+    </button>
+  </div>
+</div>
