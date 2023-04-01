@@ -1,0 +1,7 @@
+<div class="panel ">
+  <div class="panel-heading">{{element.name}}</div>
+  <div class="panel-body">
+      <span *ngIf="element.type==='server'" class="text-danger">{{element.content}}</span>
+      <span *ngIf="element.type==='blueprint'" class="text-primary">{{element.content}}</span>
+  </div>
+</div>

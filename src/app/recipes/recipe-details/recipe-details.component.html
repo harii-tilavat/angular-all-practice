@@ -1,14 +1,33 @@
-<div class="row  ">
+<div class="row">
+  <div class="col-12">
+    <img src="" alt="" class="img-fluid ">
+  </div>
+</div>
+<div class="row ">
   <div class="col-12">
     <h1>Recipe Name</h1>
   </div>
 </div>
-<div class="row my-4">
+<div class="row">
   <div class="col-12">
-    <button class="btn btn-dark text-white" (click)="check()">Manage Recipe </button>
-    <div class="content" *ngIf="flag">
-      <p class="m-0">Description</p>
-      <p class="m-0">Ingredients</p>
+    <div class="btn-group">
+      <button type="button" class="btn btn-dark"> Manage Recipe</button>
     </div>
+    <ul class="list-unstyled dropdown-menu">
+      <li><a href="#">To Shopping List</a></li>
+      <li><a href="#">Edit Recipe</a></li>
+      <li><a href="#">Delete Recipe</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <span>Description</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <span>Ingredients</span>
   </div>
 </div>
