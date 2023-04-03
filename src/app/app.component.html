@@ -24,7 +24,10 @@
 
 <div class="container my-4">
   <hr>
-  <app-data-interchange [data]="userDetails" (updateDataEvent)="updateData($event)"></app-data-interchange>
+  <app-data-interchange [data]="userDetails" [element]="user" (hData)="haritData($event)">
+    <input type="text" name="" id="" [value]="'12345'" class="form-control">
+  </app-data-interchange>
   <hr>
+  <h1>{{demo | json}}</h1>
 </div>
 

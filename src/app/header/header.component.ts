@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() headerTitle!: string;
-  @Input() demo:string="";
+  @Input() demo!:string;
   public subTitle!: string;
 
   @Output() haritDataSend = new EventEmitter<{ name: string, surName: string }>();
