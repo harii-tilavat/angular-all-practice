@@ -1,1 +1,8 @@
-<p>accounts works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <app-new-account></app-new-account>
+      <app-account *ngFor="let item of accounts; let i=index" [name]="item.accountName" [status]="item.status" [id]="i" ></app-account>
+    </div>
+  </div>
+</div>

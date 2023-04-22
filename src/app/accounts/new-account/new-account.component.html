@@ -1,1 +1,18 @@
-<p>new-account works!</p>
+<div class="row py-3 ">
+  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    <div class="mb-3">
+      <label for="account-name" class="h4">Enter Account Name</label>
+      <input type="text" class="form-control" #accountName>
+    </div>
+    <div class="mb-3">
+      <select class="form-control" name="" id="" #status>
+        <option value="active">active</option>
+        <option value="inactive">inactive</option>
+        <option value="hidden">hidden</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-success" type="button" (click)="onAccountCreate(accountName.value,status.value)">Add Account</button>
+    </div>
+  </div>
+</div>

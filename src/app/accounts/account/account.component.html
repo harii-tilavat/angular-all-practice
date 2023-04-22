@@ -1,1 +1,16 @@
-<p>account works!</p>
+<div class="row py-3 border rounded my-3">
+  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    <div class="account-head">
+      <h4>{{name}}</h4> <hr>
+    </div>
+    <div class="account-body">
+      <p>This account is <span class="fw-bold">{{status}}</span></p>
+      <div class="controls">
+        <button class="btn btn-outline-dark" (click)="setTo('active')">Set to 'Active'</button>
+        <button class="btn btn-outline-dark mx-3" (click)="setTo('inactive')">Set to 'inactive'</button>
+        <button class="btn btn-outline-dark" (click)="setTo('hidden')">Set to 'hidden'</button>
+        <button class="btn btn-outline-dark mx-3" (click)="onDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
