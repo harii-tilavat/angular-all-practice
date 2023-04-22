@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild,ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-data-interchange',
@@ -9,18 +9,36 @@ export class DataInterchangeComponent implements OnInit {
 
   @Input() childName!: string;
   @Input() childNumber!: number;
-
   @Input() data!: any; //Object
-
-  // @Output() updateDataEvent = new EventEmitter<{   ḍname: string, number: number }>();
   @Output() updateDataEvent = new EventEmitter<{ name: string, number: number }>();
   @Output() demoEvent = new EventEmitter<{ name: string, number: number }>();
   @Output('hData') haritDataSend = new EventEmitter<{ name: string, number: number }>();
+  @Input() element!: { name: string, number: number };
+  // @ViewChild('element',{static:true}) element:ElementRef;
+  // @ContentChild('element') element:ElementRef
   name!: string;
   sname!: string;
   email!: string;
   number!: (number | string);
-  @Input() element!: { name: string, number: number };
+
+  formData:any=[
+    {
+      desc:"Enter Your first Name",
+      refer:this.name,
+    },
+    {
+      desc:"Enter Your last Name",
+      refer:this.sname
+    },
+    {
+      desc:"Enter Your Email",
+      refer:this.email
+    },
+    {
+      desc:"Enter Your Number",
+      refer:this.number
+    }
+  ]
   constructor() {
   }
 

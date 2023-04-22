@@ -1,2 +1,13 @@
-<p>recipe-item works!</p>
-
+<div class="recipe-content" style="cursor: pointer;" (click)="onSelected()">
+  <div class="row border align-items-center bg-light rounded my-1">
+    <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm-12 py-2 ">
+      <h4>{{recipe.name}}</h4>
+      <p>{{recipe.desc}}</p>
+    </div>
+    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-12 py-2">
+      <span class="img-content">
+        <img [src]="recipe.imagePath" alt="" class="img-fluid">
+      </span>
+    </div>
+  </div>
+</div>

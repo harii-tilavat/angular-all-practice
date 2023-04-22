@@ -1,16 +1,16 @@
-<app-header [headerTitle]="title" (haritDataSend)="haritDataSend($event)"></app-header>
-<!-- <div class="container my-4">
-  <div class="row">
-    <div class="col-12 border">
+<app-header (haritDataSend)="haritDataSend($event)" (navigationEvent)="navigate($event)"></app-header>
+<div class="container my-4">
+  <div class="row ">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" *ngIf="check==='recipe'">
       <app-recipes></app-recipes>
     </div>
   </div>
   <div class="row">
-    <div class="col-12 border border-success">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" *ngIf="check==='shopping-list'">
       <app-shopping-list></app-shopping-list>
     </div>
   </div>
-</div> -->
+</div>
 
 <!-- <div class="container">
   <app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBlueprintAdded($event)" [cockpit]="demoInput" [serverContent]="demoInput2"></app-cockpit>
@@ -23,11 +23,21 @@
 </div> -->
 
 <div class="container my-4">
-  <hr>
-  <app-data-interchange [data]="userDetails" [element]="user" (hData)="haritData($event)">
-    <input type="text" name="" id="" [value]="'12345'" class="form-control">
-  </app-data-interchange>
-  <hr>
-  <h1>{{demo | json}}</h1>
+  <div class="row">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <app-data-interchange [data]="userDetails" [element]="user" (hData)="haritData($event)"> </app-data-interchange>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <app-testimonal></app-testimonal>
+    </div>
+  </div>
 </div>
 
+<div class="row">
+  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <!-- <app-assignment></app-assignment> -->
+    <app-assignment2></app-assignment2>
+  </div>
+</div>

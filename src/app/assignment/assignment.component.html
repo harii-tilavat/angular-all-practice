@@ -1,9 +1,15 @@
-<div class="assignment py-5">
+<!-- <div class="assignment py-5">
   <div class="container">
     <button class="btn btn-dark" (click)="getItem()">Display Details</button>
     <h2 *ngIf="flag">Password is abc123</h2>
     <p *ngFor="let item of items; let i=index" [ngStyle]="{backgroundColor:i>4?'blue':'transperent'}" [ngClass]="{'bg-blue':i>=4}">In {{i}} Index Value is: {{item}} </p>
 
-    <!-- <p *ngFor="let i of item">{{i}}</p> -->
+    <p *ngFor="let i of item">{{i}}</p>
   </div>
+</div> -->
+<div class="container border">
+  <h1>Assignment works</h1>
+  <app-game-control (intervalFired)="start($event)"></app-game-control>
+  <app-odd *ngFor="let item of oddNumbers" [number]="item"></app-odd>
+  <app-even *ngFor="let item of evenNumbers" [number]="item"></app-even>
 </div>

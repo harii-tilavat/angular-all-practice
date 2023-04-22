@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12 mb-2">
+          <app-game-control2 (gameEvent)="start($event)"></app-game-control2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul class="list-unstyled list-group list-group-flush">
+            <app-odd2 *ngFor="let item of oddNumbers" [number]="item"></app-odd2>
+            <app-even2 *ngFor="let item of evenNumbers" [number]="item"></app-even2>
+            <app-viewchild></app-viewchild>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

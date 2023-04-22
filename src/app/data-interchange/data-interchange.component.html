@@ -37,36 +37,35 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-12" >
     <div class="mb-3">
-      <label for="fname" >Enter First Name</label>
+      <label for="fname" >Enter Your First Name</label>
       <input type="text" name="" id="fname" class="form-control" [(ngModel)]="name">
     </div>
   </div>
-  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-12">
     <div class="mb-3">
       <label for="lname" >Enter Last Name</label>
       <input type="text" name="" id="lname" class="form-control" [(ngModel)]="sname">
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-12">
     <div class="mb-3">
       <label for="email" >Enter Email</label>
       <input type="text" name="" id="email" class="form-control" [(ngModel)]="email">
     </div>
   </div>
-  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-12">
+  <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-12">
     <div class="mb-3">
-      <label for="number" >Enter Your Number</label>
+      <label for="number">Enter Your Number</label>
       <input type="text" name="" id="number" class="form-control" [(ngModel)]="number">
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col-12">
-    <table class="table  table-striped" >
+    <table class="table table-striped" >
       <tr>
         <th>Name</th>
         <th>Surname</th>
@@ -89,18 +88,22 @@
     </button>
   </div>
 </div>
+<div class="row">
+  <div class="col-12">
+    <!-- <input type="text" #element> -->
+  </div>
+</div>
 <!-- <div class="row border">
   <div class="col-12">
     <h1>{{element.name}}</h1>
     <h1>{{element.number}}</h1>
   </div>
 </div> -->
-<div class="row border py-3">
+<!-- <div class="row border py-3">
   <div class="col-6">
     <input type="text" name="" id="" #demo class="form-control">
-    <ng-content></ng-content>
   </div>
   <div class="col-6">
     <button class="btn btn-dark" (click)="localRef(demo)">Click</button>
   </div>
-</div>
+</div> -->

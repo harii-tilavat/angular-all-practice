@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CockpitComponent } from './cockpit.component';
+import { Odd2Component } from './odd2.component';
 
-describe('CockpitComponent', () => {
-  let component: CockpitComponent;
-  let fixture: ComponentFixture<CockpitComponent>;
+describe('Odd2Component', () => {
+  let component: Odd2Component;
+  let fixture: ComponentFixture<Odd2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CockpitComponent ]
+      declarations: [ Odd2Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CockpitComponent);
+    fixture = TestBed.createComponent(Odd2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,11 +1,10 @@
-<div class="row">
+<div class="row p-2">
   <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-12">
-    <h2>Shopping edit</h2>
-    <app-shopping-edit></app-shopping-edit>
-    <hr>
+    <h2>Shopping Edit</h2>
+    <app-shopping-edit (onAddItemEvent)="onAdded($event)"></app-shopping-edit>
     <ul class="list-group">
-      <a  class="list-group-item" *ngFor="let ingredient of ingredients">
-        {{ingredient.name}} ({{ingredient.amount}})
+      <a class="list-group-item" *ngFor="let item of ingredients">
+        {{item.name}} ({{item.amount}})
       </a>
     </ul>
   </div>

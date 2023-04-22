@@ -8,17 +8,24 @@ import { Component } from '@angular/core';
 export class AssignmentComponent {
   flag:boolean=false;
   items:string[]=[];
-  // number:number=1;
+
+  oddNumbers:number[]=[]
+  evenNumbers:number[]=[]
+  start(number:number){
+    // console.log("Number Is: "+ number);
+    if(number%2==0){
+      this.evenNumbers.push(number);
+    }
+    else{
+      this.oddNumbers.push(number);
+    }
+    console.log("Odd Number: ");
+    console.log(this.oddNumbers);
+    console.log("Even Number: ");
+    console.log(this.evenNumbers);
+  }
   getItem(){
-    // this.flag==true?this.flag=false:this.flag=true;
     this.flag=!this.flag;
-    // if(this.flag){
-    //   this.flag=false;
-    // }
-    // else{
-    //   this.flag=true;
-    // }
-    // console.log(this.number);
     this.items.push(''+(this.items.length+1));
     // this.number++;
     console.log(this.flag);

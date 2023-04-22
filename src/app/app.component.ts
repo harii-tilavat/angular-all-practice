@@ -4,6 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+
 })
 export class AppComponent implements OnInit {
 
@@ -13,11 +14,8 @@ export class AppComponent implements OnInit {
   public name: string = "Harit";
   public num!: number;
   public demo!: any;
-
-  haritData(Data: { name: string, number: number }) {
-    console.log("Harit Data ! ");
-    console.log(Data);
-  }
+  public flag: boolean = true;
+  public check: string = 'recipe';
 
   public user: { name: string, number: number } = {
     name: "Harit",
@@ -50,11 +48,18 @@ export class AppComponent implements OnInit {
 
 
   }
-
+  recipe(): void {
+    this.flag = !this.flag;
+    console.log(this.flag);
+  }
   updateData(item: any): void {
     console.warn("Value of Output: " + item.name);
     this.demo = item
 
+  }
+  haritData(Data: { name: string, number: number }) {
+    console.log("Harit Data ! ");
+    console.log(Data);
   }
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
@@ -77,5 +82,18 @@ export class AppComponent implements OnInit {
       name: item.name,
       content: item.surName
     });
+  }
+  navigate(value: string): void {
+    if (value === 'recipe') {
+      this.check = value;
+    }
+    else if (value === 'shopping-list') {
+      // console.log("Shopping List");
+      this.check = value;
+    }
+    else {
+      console.log("Not selected");
+    }
+    // console.log("App Value" + value);
   }
 }
