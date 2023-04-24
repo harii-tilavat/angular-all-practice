@@ -1,18 +1,25 @@
 <app-header (haritDataSend)="haritDataSend($event)" (navigationEvent)="navigate($event)"></app-header>
 
+
+<!-- <div class="row border border-success">
+  <div class="col-12">
+   <app-users></app-users>
+  </div>
+</div>
 <div class="row border border-success">
   <div class="col-12">
     <app-accounts></app-accounts>
   </div>
-</div>
+</div> -->
+
 <div class="container my-4">
   <div class="row ">
-    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" *ngIf="check==='recipe'">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " *ngIf="check==='recipe'">
       <app-recipes></app-recipes>
     </div>
   </div>
   <div class="row">
-    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" *ngIf="check==='shopping-list'">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " *ngIf="check==='shopping-list'">
       <app-shopping-list></app-shopping-list>
     </div>
   </div>

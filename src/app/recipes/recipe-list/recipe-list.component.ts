@@ -1,20 +1,27 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recipe } from '../recipe.model'
+import { RecipeService } from '../recipe.service';
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.scss']
+  styleUrls: ['./recipe-list.component.scss'],
+  providers:[RecipeService]
 })
 export class RecipeListComponent implements OnInit {
 
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
   public img: string = 'https://th.bing.com/th/id/OIP.MqjRmaTRe4575ckKqFvmhwHaFj?pid=ImgDet&rs=1';
-  public recipe: Recipe[] = [
-    new Recipe('Test Recipe', 'This is test Description', 'https://th.bing.com/th/id/OIP.MqjRmaTRe4575ckKqFvmhwHaFj?pid=ImgDet&rs=1'),
-  ];
-
-  constructor() { }
+  public recipe!:Recipe[];
+  // public recipe: Recipe[] = [
+  //   new Recipe('Test Recipe', 'This is test Description', 'https://th.bing.com/th/id/OIP.MqjRmaTRe4575ckKqFvmhwHaFj?pid=ImgDet&rs=1'),
+  // ];
+  
+  constructor(private recipeService:RecipeService) { }
   ngOnInit(): void {
+    this.recipe=this.recipeService.getRecipe();
+    console.log("After creatin recipe service: ");
+    console.log(this.recipeService);
+    
   }
 
   pushMethod(): void {
@@ -23,7 +30,6 @@ export class RecipeListComponent implements OnInit {
 
   onRecipeSelect(value: Recipe) {
     console.log("Emited Value: ");
-
     console.log(value);
     this.recipeWasSelected.emit(value);
   }
