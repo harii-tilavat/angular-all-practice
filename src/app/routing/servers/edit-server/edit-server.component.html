@@ -1,0 +1,16 @@
+<div class="mb-2">
+    <label for="server-name" class="form-label fw-semibold">Server Name</label>
+    <input type="text" name="" id="server-name" class="form-control" [(ngModel)]="serverName">
+</div>
+<div class="mb-3">
+    <label for="server-status" class="form-label fw-semibold">Status</label>
+    <select name="" id="server-status" class="form-control" [(ngModel)]="status">
+        <option value="online">online</option>
+        <option value="offline">offline</option>
+    </select>
+    <p>Server Name:{{serverName}}</p>
+    <p>Status:{{status}}</p>
+</div>
+<div class="mb-3">
+    <button type="button" class="btn btn-primary" (click)="updateServer()">Update</button>
+</div>

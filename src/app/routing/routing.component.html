@@ -1,1 +1,31 @@
-<p>routing works!</p>
+<div class="container py-3 border">
+    <div class="row justify-content-center">
+        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-12 ">
+            <nav class=" ">
+                <div class="container">
+                    <ul class="list-unstyle nav nav-tabs">
+                        <li class="nav-item"  ><a class="nav-link " routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+                        <li class="nav-item "  ><a class="nav-link " routerLink="server" routerLinkActive="active">Servers</a></li>
+                        <li class="nav-item" ><a class="nav-link" routerLink="user" routerLinkActive="active">Users</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row justify-content-center my-3">
+        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-12 border">
+            <!-- <app-home></app-home> -->
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <!-- <div class="row justify-content-center">
+        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-12 border">
+            <app-routing-users></app-routing-users>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-12 border">
+            <app-servers></app-servers>
+        </div>
+    </div> -->
+</div>

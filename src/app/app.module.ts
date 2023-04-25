@@ -38,6 +38,9 @@ import { RoutingComponent } from './routing/routing.component';
 import { HomeComponent } from './routing/home/home.component';
 import { ServersComponent } from './routing/servers/servers.component';
 import { RoutingUsersComponent } from './routing/routing-users/routing-users.component';
+import { EditServerComponent } from './routing/servers/edit-server/edit-server.component';
+import { ServerComponent } from './routing/servers/server/server.component';
+import { UserComponent } from './routing/routing-users/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +75,11 @@ import { RoutingUsersComponent } from './routing/routing-users/routing-users.com
     RoutingComponent,
     HomeComponent,
     ServersComponent,
-    RoutingUsersComponent
+    RoutingUsersComponent,
+    EditServerComponent,
+    ServerComponent,
+    UserComponent,
+    
 
   ],
   imports: [

@@ -1,1 +1,10 @@
-<p>routing-users works!</p>
+<div class="row mb-3">
+    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of users">{{item.name}}</li>
+        </ul>
+    </div>
+    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12">
+        <app-user></app-user>
+    </div>
+</div>
