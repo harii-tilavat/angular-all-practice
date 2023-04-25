@@ -34,6 +34,10 @@ import { UsersComponent } from './users/users.component';
 import { ActiveUsersComponent } from './users/active-users/active-users.component';
 import { InactiveUsersComponent } from './users/inactive-users/inactive-users.component';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { RoutingComponent } from './routing/routing.component';
+import { HomeComponent } from './routing/home/home.component';
+import { ServersComponent } from './routing/servers/servers.component';
+import { RoutingUsersComponent } from './routing/routing-users/routing-users.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +68,11 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     NewAccountComponent,
     UsersComponent,
     ActiveUsersComponent,
-    InactiveUsersComponent
+    InactiveUsersComponent,
+    RoutingComponent,
+    HomeComponent,
+    ServersComponent,
+    RoutingUsersComponent
 
   ],
   imports: [
