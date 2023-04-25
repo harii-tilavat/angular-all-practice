@@ -14,10 +14,10 @@
   <div class="col-12 py-2">
     <div class="manage-recipes" appDropdown>
       <div class="btn-group">
-        <button type="button" class="btn btn-dark dropdown-toggle" > Manage Recipe</button>
+        <button type="button" class="btn btn-dark dropdown-toggle"> Manage Recipe</button>
       </div>
       <ul class="list-unstyled dropdown-menu " >
-        <li><a href="#" class="dropdown-item">To Shopping List</a></li>
+        <li><a href="#" class="dropdown-item" (click)="toAddShoopingList()">To Shopping List</a></li>
         <li><a href="#" class="dropdown-item">Edit Recipe</a></li>
         <li><a href="#" class="dropdown-item">Delete Recipe</a></li>
       </ul>
@@ -27,8 +27,9 @@
 
 <div class="row">
   <div class="col-12">
-    <!-- <span>Description</span>
-    <span>Ingredients</span> -->
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of recipe.ingredients">{{item.name}} - {{item.amount}}</li>
+    </ul>
   </div>
 </div>
 

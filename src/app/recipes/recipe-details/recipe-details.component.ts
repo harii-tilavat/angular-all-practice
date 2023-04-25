@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../recipe.model';
-
+import { Ingredient } from 'src/app/shared/ingredient.model';
+import { RecipeService } from '../recipe.service';
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
@@ -11,11 +12,14 @@ export class RecipeDetailsComponent implements OnInit {
   @Input() recipe!:Recipe;
   public flag:boolean=true;
 
-  constructor() {}
+  constructor(private recipeService:RecipeService ) {}
   ngOnInit():void{
-
   }
   check(){
     this.flag=!this.flag;
+  }
+
+  toAddShoopingList():void{
+    this.recipeService.toAddShoppingList(this.recipe.ingredients);
   }
 }

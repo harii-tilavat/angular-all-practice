@@ -33,6 +33,7 @@ import { NewAccountComponent } from './accounts/new-account/new-account.componen
 import { UsersComponent } from './users/users.component';
 import { ActiveUsersComponent } from './users/active-users/active-users.component';
 import { InactiveUsersComponent } from './users/inactive-users/inactive-users.component';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,7 @@ import { InactiveUsersComponent } from './users/inactive-users/inactive-users.co
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
