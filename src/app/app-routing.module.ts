@@ -6,12 +6,10 @@ import { ServersComponent } from './routing/servers/servers.component';
 import { UserComponent } from './routing/routing-users/user/user.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'user', component: RoutingUsersComponent },
-  {path:'user/:id',component:UserComponent},
-  { path: 'server', component: ServersComponent },
-  // {path:'**' , component:HomeComponent}
+  {path:'' , component:HomeComponent},
+  {path:'user', component:RoutingUsersComponent},
+  {path:'server', component:ServersComponent},
+  {path:'user ', component:UserComponent}
 ];
 
 @NgModule({

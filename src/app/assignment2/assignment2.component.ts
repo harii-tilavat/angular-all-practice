@@ -21,7 +21,7 @@ export class Assignment2Component implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.child.title);
+    // console.log(this.child.title);
   }
   start(number: number) {
     if (number % 2 == 0) {

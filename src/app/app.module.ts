@@ -41,6 +41,9 @@ import { RoutingUsersComponent } from './routing/routing-users/routing-users.com
 import { EditServerComponent } from './routing/servers/edit-server/edit-server.component';
 import { ServerComponent } from './routing/servers/server/server.component';
 import { UserComponent } from './routing/routing-users/user/user.component';
+import { TodoAppComponent } from './todo-app/todo-app.component';
+import { TodoComponent } from './todo-app/todo/todo.component';
+import { TaskComponent } from './todo-app/task/task.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +82,9 @@ import { UserComponent } from './routing/routing-users/user/user.component';
     EditServerComponent,
     ServerComponent,
     UserComponent,
+    TodoAppComponent,
+    TodoComponent,
+    TaskComponent,
     
 
   ],

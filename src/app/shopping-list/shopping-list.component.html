@@ -1,12 +1,12 @@
 <div class="row p-2">
-  <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-12">
+  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12">
     <div class="shopping-edit">
       <h2>Shopping Edit</h2>
     </div>
-    <div>
+    <div class="shopping-edit">
       <app-shopping-edit></app-shopping-edit>
     </div>
-    <div>
+    <div class="shopping-list">
       <ul class="list-group ">
         <a class="list-group-item d-flex justify-content-between" *ngFor="let item of ingredients;let i=index" >
           {{item.name}} - {{item.amount}}
@@ -20,8 +20,5 @@
         </a>
       </ul>
     </div>
-  </div>
-  <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-12 border">
-    <h2>Right Sections</h2>
   </div>
 </div>
