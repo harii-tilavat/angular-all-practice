@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AccountService, Userservices } from 'src/app/_services';
+import { AccountService, UserServices } from 'src/app/_services';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -14,6 +14,9 @@ export class AccountComponent implements OnInit {
     // console.log(this.accountService.account);
   }
 
+testFunction(): void {
+  console.log('Hello')
+}
   setTo(status:string):void{
     console.log(status);
     this.status=status;
