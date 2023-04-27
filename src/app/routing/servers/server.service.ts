@@ -30,20 +30,12 @@ export class ServerService {
   }
 
   getServer(id: number): any {
-    const server = this.servers.find(
-      (s) => {
-        return s.id == id
-      }
-    );
-    return server;
+    return this.servers.find(s => s.id==id);
+   
   }
 
   updateServer(id: number, serverInfo: { name: string, status: string }) {
-    const server = this.servers.find(
-      (s) => {
-        return s.id === id;
-      }
-    );
+    const server = this.servers.find(s => s.id==id);
     if (server) {
       server.name = serverInfo.name;
       server.status = serverInfo.status;

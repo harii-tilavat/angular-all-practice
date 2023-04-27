@@ -11,6 +11,5 @@ export class AccountsComponent implements OnInit{
   ngOnInit(): void {
     this.accounts=this.accountService.account
     // console.log("In Account Component");
-    console.log(this.accounts);
   }
 }

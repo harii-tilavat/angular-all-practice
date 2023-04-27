@@ -17,6 +17,6 @@ export class HomeComponent implements OnInit,OnDestroy {
   }
   loadServer():void{
     console.log("Value of routes! ");
-    console.warn(this.route.navigate(['server']));
+    console.warn(this.route.navigate(['routing','servers']));
   }
 }

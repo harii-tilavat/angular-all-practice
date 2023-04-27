@@ -1,62 +1,12 @@
 <div class="header">
   <app-header (haritDataSend)="haritDataSend($event)" (navigationEvent)="navigate($event)"></app-header>
 </div>
-<div class="container my-4">
-  <div class="row ">
-    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " *ngIf="check==='recipe'">
-      <app-recipes></app-recipes>
-      <!-- <router-outlet></router-outlet> -->
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 " *ngIf="check==='shopping-list'">
-      <app-shopping-list></app-shopping-list>
-    </div>
-  </div>
-</div>
 
-<div class="container">
-  <div class="row ">
-    <div class="col-12">
-      <app-users></app-users>
-    </div>
-  </div>
-
-  <div class="row ">
-    <div class="col-12">
-      <app-accounts></app-accounts>
-    </div>
-  </div>
-</div>
-<hr>
-<div class="container">
+<div class="container roter-outlet">
   <div class="row">
     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-      <app-routing></app-routing>
-    </div>
-  </div>
-</div>
-
-<hr>
-
-<div class="container my-4">
-  <div class="row">
-    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-      <app-data-interchange [data]="userDetails" [element]="user" (hData)="haritData($event)"> </app-data-interchange>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-      <app-testimonal></app-testimonal>
-    </div>
-  </div>
-</div>
-<hr>
-<div class="container">
-  <div class="row">
-    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-      <!-- <app-assignment></app-assignment> -->
-      <app-assignment2></app-assignment2>
+      <!-- <app-routing></app-routing> -->
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

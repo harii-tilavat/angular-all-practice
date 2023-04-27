@@ -17,11 +17,7 @@ export class ShoppingListService{
         this.ingredientChanged.emit(this.ingredients.slice());
     }
     addIngredients(ingredients:Ingredient[]){
-        console.log("Add Ingredients Before: ");
-        console.warn(this.ingredients);
         this.ingredients.push(...ingredients);
-        console.log("Add Ingredients AFter: ");  
-        console.warn(this.ingredients);
         this.ingredientChanged.emit(this.ingredients.slice());
     }
 }

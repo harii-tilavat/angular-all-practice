@@ -17,36 +17,10 @@ export class AppComponent implements OnInit {
   public flag: boolean = true;
   public check: string = 'recipe';
 
-  public user: { name: string, number: number } = {
-    name: "Harit",
-    number: 234234
-  }
-  public userDetails: any = [
-    {
-      name: "Harit",
-      sname: "Tilavat",
-      email: "abc@gmail.com",
-      number: 9898348993
-    },
-    {
-      name: "Rahul",
-      sname: "Tiwari",
-      email: "rahul@gmail.com",
-      number: 3456363563
-    },
-    {
-      name: "Karan",
-      sname: "Unagar",
-      email: "karan@gmail.com",
-      number: 5867556644
-    }
-  ];
+  
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.serverElements);
-
-
   }
   recipe(): void {
     this.flag = !this.flag;
@@ -57,10 +31,7 @@ export class AppComponent implements OnInit {
     this.demo = item
 
   }
-  haritData(Data: { name: string, number: number }) {
-    console.log("Harit Data ! ");
-    console.log(Data);
-  }
+
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
       type: 'server',

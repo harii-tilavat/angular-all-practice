@@ -15,7 +15,5 @@ export class ShoppingEditComponent implements OnInit {
 
   addItem(nameInput: string, amountInput: string): void {
     this.shoppingListService.addItem(nameInput,amountInput);
-    console.log("Name value: "+ nameInput);
-    console.log("Amount value: "+ amountInput);
   }
 }

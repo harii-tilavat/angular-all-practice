@@ -10,6 +10,7 @@ export class DropdownDirective implements OnInit {
   constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    console.log("Drodown Directive is Open");
   }
 
   @HostListener('click') onClick(eventData: Event) {
