@@ -14,7 +14,7 @@ export class AccountComponent implements OnInit {
     // console.log(this.accountService.account);
   }
 
-  setToHello(status: string): void {
+  setTo(status: string): void {
     console.log(status);
     this.status = status;
   }
