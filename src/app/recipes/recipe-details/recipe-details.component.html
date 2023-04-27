@@ -12,11 +12,12 @@
 </div>
 <div class="row">
   <div class="col-12 py-2">
-    <div class="manage-recipes" appDropdown>
-      <div class="btn-group">
-        <button type="button" class="btn btn-dark dropdown-toggle" >  Manage Recipe</button>
-      </div>
-      <ul class="list-unstyled dropdown-menu " >
+
+    <div class="manage-recipes dropdown">
+      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Manage Recipe
+      </button>
+      <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownMenuButton1">
         <li><a  class="dropdown-item" (click)="toAddShoopingList()">To Shopping List</a></li>
         <li><a  class="dropdown-item">Edit Recipe</a></li>
         <li><a  class="dropdown-item">Delete Recipe</a></li>

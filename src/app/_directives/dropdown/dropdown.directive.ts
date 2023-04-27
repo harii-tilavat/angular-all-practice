@@ -1,21 +1,35 @@
-import { BootstrapOptions, Directive, ElementRef, HostBinding, HostListener, OnInit, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostBinding,
+  HostListener,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 @Directive({
-  selector: '[appDropdown]'
+  selector: '[appDropdown]',
 })
 export class DropdownDirective implements OnInit {
+  @Input() focusClose = null as unknown as string;
   @HostBinding('class.open') isOpen: boolean = false;
   // @HostBinding('style.color') color !:string;
-
-  constructor(private elRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private elRef: ElementRef) {}
 
   ngOnInit(): void {
-    console.log("Drodown Directive is Open");
+    console.log('Drodown Directive is Open');
   }
-
-  @HostListener('click') onClick(eventData: Event) {
-    console.log(this.elRef);
-    this.isOpen = !this.isOpen;
-    // this.showDropdown=!this.showDropdown;
+  // @HostListener('click' ,['$event']) onThisClick(){
+  //   this.isOpen=true;
+  // }
+  @HostListener('document:click', ['$event']) onClick(eventData: Event) {
+    // this.isOpen = !this.isOpen;
+    if (!this.elRef.nativeElement.contains(eventData.target)) {
+      this.isOpen = false;
+    } else {
+      this.isOpen = true;
+    }
+    eventData.preventDefault();
+    eventData.stopPropagation();
   }
 }
