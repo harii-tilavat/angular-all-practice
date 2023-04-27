@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AccountService } from 'src/app/services/account.service';
+import { AccountService } from 'src/app/_services';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
