@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
 testFunction(): void {
   console.log('Hello')
 }
-  setTo(status:string):void{
+  setToHello(status:string):void{
     console.log(status);
     this.status=status;
   }
