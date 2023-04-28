@@ -1,6 +1,6 @@
 export class MenuList {
-  id!:number;
+  id!: number;
   label!: string;
-  routing!: string | string[] |null  ;
-  subMenu: MenuList[]=[];
+  routing!: string | string[] | null;
+  subMenu: MenuList[] = [];
 }

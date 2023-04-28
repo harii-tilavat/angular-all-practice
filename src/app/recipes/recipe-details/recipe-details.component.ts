@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Recipe } from '../recipe.model';
-import { Ingredient } from 'src/app/shared/ingredient.model';
+import { Recipe } from 'src/app/_model';
 import { RecipeService } from '../recipe.service';
 @Component({
   selector: 'app-recipe-details',
@@ -21,5 +20,6 @@ export class RecipeDetailsComponent implements OnInit {
 
   toAddShoopingList():void{
     this.recipeService.toAddShoppingList(this.recipe.ingredients);
+    alert("Ingredients added Successfully");
   }
 }

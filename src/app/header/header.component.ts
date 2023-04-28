@@ -27,43 +27,43 @@ export class HeaderComponent implements OnInit {
     },
 
     {
-      id: 3,
+      id: 2,
       label: 'Accounts',
       routing: '/accounts',
       subMenu: [],
     },
     {
-      id: 4,
+      id: 3,
       label: 'Routing',
       routing: ['routing','home'],
       subMenu: [],
     },
     {
-      id: 5,
+      id: 4,
       label: 'Testimonal',
       routing: '/testimonal',
       subMenu: [],
     },
     {
-      id: 6,
+      id: 5,
       label: 'Assignment2',
       routing: '/assignment2',
       subMenu: [],
     },
     {
-      id: 7,
+      id: 6,
       label: 'Users',
       routing: '/users/active',
       subMenu: [],
     },
     {
-      id: 8,
+      id: 7,
       label: 'Todo',
       routing: '/todo-app',
       subMenu: [],
     },
     {
-      id: 9,
+      id: 8,
       label: 'Manage',
       routing: null,
       subMenu: [
