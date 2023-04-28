@@ -7,14 +7,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
-          <ng-container *ngFor="let item of menuList; let i = index">
+          <!-- <ng-container *ngFor="let item of menuList; let i = index">
             <ng-container *ngIf="item.subMenu.length === 0;else dbMenu">
               <li class="nav-item"><a class="nav-link" [id]="'menu-'+item.id" [routerLink]="item.routing">{{item.label}} </a></li>
             </ng-container>
             <ng-template #dbMenu >
               <li class="nav-item dropdown" [class.ms-auto]="i === (menuList.length - 1)" appDropdown>
               <a class="nav-link dropdown-toggle" [id]="'menu-'+item.id" [routerLink]="item.routing" role="button"
-                [attr.aria-expanded]="false">
+                [attr.aria-expanded]="true">
                 {{item.label}}
               </a>
               <ul class="dropdown-menu text-white">
@@ -24,6 +24,24 @@
               </ul>
             </li>
              </ng-template>
+          </ng-container> -->
+          <ng-container *ngFor="let item of menuList; let i=index" >
+            <ng-container *ngIf="item.subMenu.length === 0;else dbMenu">
+              <li class="nav-item"><a class="nav-link" [id]="'menu'+item.id"  [routerLink]="item.routing">{{item.label}}</a></li>
+            </ng-container>
+            <ng-template #dbMenu>
+              <li class="nav-item dropdown" [ngClass]="{'ms-auto':i===(menuList.length-1)}" appDropdown>
+                <a class="nav-link dropdown-toggle"  [id]="'menu'+item.id" [routerLink]="item.routing" role="button"
+                  [attr.aria-expanded]="true">
+                  {{item.label}}
+                </a>
+                <ul class="dropdown-menu">
+                  <li *ngFor="let subItem of item.subMenu">
+                    <a class="dropdown-item"[routerLink]="subItem.routing" [id]="'menu'+subItem.id" > {{subItem.label}} </a>
+                  </li>
+                </ul>
+              </li>
+            </ng-template>
           </ng-container>
         </ul>
       </div>
