@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
     },
     {
       id: 5,
-      label: 'Assignment2',
+      label: 'Game',
       routing: '/assignment2',
       subMenu: [],
     },

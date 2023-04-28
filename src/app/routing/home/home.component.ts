@@ -1,22 +1,41 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit,OnDestroy {
-
-  constructor(private route:Router) {}
-
-  ngOnInit(): void {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
+  public loadSecond: number = 1;
+  public isRedirect: boolean = false;
+  @ViewChild('redirect') redirect!: ElementRef;
+  constructor(private router: Router) {}
+  ngAfterViewInit(): void {
+    console.log('Value of redirect! ');
   }
 
-  ngOnDestroy(): void {
-    console.warn("Home Component is Destroyed ");
-  }
-  loadServer():void{
-    console.log("Value of routes! ");
-    console.warn(this.route.navigate(['routing','servers']));
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {}
+  loadServer(id: number): void {
+    this.isRedirect = true;
+    console.log('Server Loaded');
+    setInterval(() => {
+      this.loadSecond = this.loadSecond - 1;
+      if (this.loadSecond == 0) {
+        this.router.navigate(['routing', 'servers', id, 'edit'], {
+          queryParams: { allowEdit: '1' },
+          fragment: 'fragment',
+        });
+        console.warn('Redirected');
+      }
+    }, 1000);
   }
 }

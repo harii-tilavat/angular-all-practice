@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerService } from '../server.service';
+import { ServerService } from '../servers.service';
 @Component({
   selector: 'app-edit-server',
   templateUrl: './edit-server.component.html',

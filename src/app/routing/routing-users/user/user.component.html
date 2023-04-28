@@ -1,2 +1,8 @@
-<p>User ID -{{userId}}</p>
-<p>User Name -{{userName}}</p>
+<div>
+  <p>User ID - {{user.id}}</p>
+  <p>User Name -{{user.name}}</p>
+</div>
+<div>
+  <button type="button " class="btn btn-success" [routerLink]="['../users',8,'Harit']">Load Harii (8)</button>
+  <button class="btn btn-primary mx-3"  (click)="showParameter()">Click to know Parameter</button>
+</div>
