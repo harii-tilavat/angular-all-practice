@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerService } from './server.service';
+import { ServerService } from './servers.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 @Component({
   selector: 'app-servers',
@@ -14,9 +14,9 @@ export class ServersComponent implements OnInit{
     this.servers=this.serverService.getServers();
     console.log("Server get succesfully");
     console.log(this.servers);
-    
+
   }
   onRealodPage():void{
-    this.router.navigate(['server'],{relativeTo:this.rout});
+    this.router.navigate(['routing','servers']);
   }
 }

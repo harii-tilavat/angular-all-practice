@@ -1,19 +1,34 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
 })
-export class UserComponent implements OnInit {
-  @Input() userId!:number;
-  @Input() userName!:string;
-  constructor() {}
+export class UserComponent implements OnInit, OnDestroy {
+  public user!: { id: number; name: string };
+  public paramsSubscription!: Subscription;
+
+  constructor(private route: ActivatedRoute) {}
+
   ngOnInit(): void {
+    this.user = {
+      id: this.route.snapshot.params['id'],
+      name: this.route.snapshot.params['name'],
+    };
+    this.paramsSubscription = this.route.params.subscribe((params: Params) => {
+      this.user.id = params['id'];
+      this.user.name = params['name'];
+    });
   }
-  
-  changeValue():void{
-    console.log("Value of User Id: " + this.userId);
-    console.log("Value of User Name: " + this.userName);
+  ngOnDestroy(): void {
+    this.paramsSubscription.unsubscribe();
+  }
+
+  showParameter(): void {
+    console.log('ID===' + this.route.snapshot.params['id']);
+    console.log('Name===' + this.route.snapshot.params['name']);
   }
 }

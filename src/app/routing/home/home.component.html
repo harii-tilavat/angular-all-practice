@@ -4,6 +4,7 @@
         <p>Manage your servers and users</p>
     </div>
     <div class="control">
-        <button class="btn btn-primary" (click)="loadServer()">Load Server</button>
+      <button type="button" class="btn btn-dark" (click)="loadServer(2)" >Load Servers</button> <hr>
+      <p class="text-danger" *ngIf="isRedirect" #redirect>You will Redirect in {{loadSecond}} Seconds! </p>
     </div>
 </div>
