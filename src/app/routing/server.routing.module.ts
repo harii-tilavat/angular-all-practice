@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { RoutingComponent } from './routing.component';
 import { UserComponent } from './routing-users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { RoutingUsersComponent } from './routing-users/routing-users.component';
+import { ServerComponent } from './servers/server/server.component';
 
 const routes: Routes = [
   {
@@ -12,10 +14,21 @@ const routes: Routes = [
     component: RoutingComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'servers', component: ServersComponent },
-      { path: 'users', component: UserComponent },
-      { path: 'users/:id/:name', component: UserComponent },
-      { path: 'servers/:id/edit', component: EditServerComponent },
+      {
+        path: 'users',
+        component: RoutingUsersComponent,
+        children: [
+          { path: ':id/:name', component: UserComponent },
+        ],
+      },
+      {
+        path: 'servers',
+        component: ServersComponent,
+        children: [
+          { path: ':id', component: ServerComponent },
+          { path: ':id/edit', component: EditServerComponent },
+        ],
+      },
       // { path: '**', redirectTo: 'home', pathMatch: 'full' },
     ],
   },

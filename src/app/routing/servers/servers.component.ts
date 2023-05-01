@@ -4,19 +4,20 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.scss']
+  styleUrls: ['./servers.component.scss'],
 })
-export class ServersComponent implements OnInit{
-  public servers!:{id:number,name:string,status:string}[];
+export class ServersComponent implements OnInit {
+  public servers!: { id: number; name: string; status: string }[];
 
-  constructor(private serverService:ServerService,private router:Router,private rout:ActivatedRoute) {}
+  constructor(
+    private serverService: ServerService,
+    private router: Router,
+    private rout: ActivatedRoute
+  ) {}
   ngOnInit(): void {
-    this.servers=this.serverService.getServers();
-    console.log("Server get succesfully");
-    console.log(this.servers);
-
+    this.servers = this.serverService.getServers();
   }
-  onRealodPage():void{
-    this.router.navigate(['routing','servers']);
+  onRealodPage(): void {
+    this.router.navigate(['routing', 'servers']);
   }
 }
