@@ -7,4 +7,8 @@
       <button type="button" class="btn btn-dark" (click)="loadServer(1)" >Load Server 1</button> <hr>
       <p class="text-danger" *ngIf="isRedirect" #redirect>You will Redirect in {{loadSecond}} Seconds! </p>
     </div>
+    <div class="auth">
+      <button class="btn btn-primary" (click)="onLogin()">Login</button>
+      <button class="btn btn-primary mx-3" (click)="onLogout()">Logout</button>
+    </div>
 </div>

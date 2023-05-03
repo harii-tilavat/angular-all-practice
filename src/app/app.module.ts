@@ -15,6 +15,8 @@ import { TodoComponent } from './todo-app/todo/todo.component';
 import { TaskComponent } from './todo-app/task/task.component';
 import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
 import { DirectivesModule } from './_directives/directives.module';
+import { PromiseObservableComponent } from './practice-component/promise-observable/promise-observable.component';
+import { AuthGuard } from './_services';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { DirectivesModule } from './_directives/directives.module';
     TodoComponent,
     TaskComponent,
     InterchargeComponent,
+    PromiseObservableComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { DirectivesModule } from './_directives/directives.module';
     FormsModule,
     DirectivesModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

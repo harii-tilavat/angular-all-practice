@@ -7,6 +7,7 @@ import { UserComponent } from './routing-users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { RoutingUsersComponent } from './routing-users/routing-users.component';
 import { ServerComponent } from './servers/server/server.component';
+import { AuthGuard } from '../_services';
 
 const routes: Routes = [
   {
@@ -21,9 +22,11 @@ const routes: Routes = [
           { path: ':id/:name', component: UserComponent },
         ],
       },
+
       {
         path: 'servers',
         component: ServersComponent,
+        canActivate:[AuthGuard],
         children: [
           { path: ':id', component: ServerComponent },
           { path: ':id/edit', component: EditServerComponent },
