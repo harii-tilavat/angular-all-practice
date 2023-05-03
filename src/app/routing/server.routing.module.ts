@@ -7,7 +7,7 @@ import { UserComponent } from './routing-users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { RoutingUsersComponent } from './routing-users/routing-users.component';
 import { ServerComponent } from './servers/server/server.component';
-import { AuthGuard, CanDeativateGuard } from '../_services';
+import { AuthGuard, CanDeativateGuard, ServerResolver } from '../_services';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 
@@ -29,7 +29,7 @@ const routes: Routes = [
         // canActivate:[AuthGuard],
         canActivateChild: [AuthGuard],
         children: [
-          { path: ':id', component: ServerComponent },
+          { path: ':id', component: ServerComponent, resolve:{server:ServerResolver} },
           {
             path: ':id/edit',
             component: EditServerComponent,

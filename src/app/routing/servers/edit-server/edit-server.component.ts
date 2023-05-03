@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerService } from '../servers.service';
+import { CanComponentDeativate, ServerService } from 'src/app/_services';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { CanComponentDeativate } from 'src/app/_services';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-edit-server',
