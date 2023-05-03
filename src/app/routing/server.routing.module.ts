@@ -7,7 +7,9 @@ import { UserComponent } from './routing-users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { RoutingUsersComponent } from './routing-users/routing-users.component';
 import { ServerComponent } from './servers/server/server.component';
-import { AuthGuard } from '../_services';
+import { AuthGuard, CanDeativateGuard } from '../_services';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 const routes: Routes = [
   {
@@ -18,21 +20,28 @@ const routes: Routes = [
       {
         path: 'users',
         component: RoutingUsersComponent,
-        children: [
-          { path: ':id/:name', component: UserComponent },
-        ],
+        children: [{ path: ':id/:name', component: UserComponent }],
       },
 
       {
         path: 'servers',
         component: ServersComponent,
-        canActivate:[AuthGuard],
+        // canActivate:[AuthGuard],
+        canActivateChild: [AuthGuard],
         children: [
           { path: ':id', component: ServerComponent },
-          { path: ':id/edit', component: EditServerComponent },
+          {
+            path: ':id/edit',
+            component: EditServerComponent,
+            canDeactivate: [CanDeativateGuard],
+          },
         ],
       },
-      // { path: '**', redirectTo: 'home', pathMatch: 'full' },
+      {
+        path: '**',
+        component: ErrorMessageComponent,
+        data: { message: 'Page Not found!' },
+      },
     ],
   },
 ];

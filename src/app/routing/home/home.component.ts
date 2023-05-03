@@ -36,20 +36,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   //     }
   //   }, 1000);
   // }
-  loadServer(id: number) {
+  loadServer(id: any) {
     console.log('Server Loaded ' + id);
-    this.router.navigate(['routing', 'servers', id, 'edit'], {
+    this.router.navigate(['routing', 'servers', id], {
       queryParams: { allowEdit: 1 }
     });
-    console.warn(this.route.snapshot);
   }
 
   onLogin():void{
     this.authService.login();
-    alert("Login Successfully! ");
+    // alert("Login Successfully! ");
   }
   onLogout():void{
     this.authService.logout();
-    alert("Logout Successfully! ");
+    // alert("Logout Successfully! ");
   }
 }

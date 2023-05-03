@@ -3,7 +3,7 @@
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let item of servers">
         <span [routerLink]="['../servers',item.id]"
-        [queryParams]="{allowEdit:'1'}"
+        [queryParams]="{allowEdit:item.id===3?'1':'0'}"
         >
           {{ item.name }}
         </span>
@@ -16,7 +16,7 @@
       </li>
     </ul>
   </div>
-  <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12 border border-success">
+  <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12">
 
     <router-outlet></router-outlet>
     <!-- <button class="btn btn-dark" (click)="onRealodPage()">Reload Page</button> -->

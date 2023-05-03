@@ -4,7 +4,7 @@
             <li class="list-group-item" *ngFor="let item of users" [routerLink]="['/routing','users',item.id,item.name]">{{item.name}}</li>
         </ul>
     </div>
-    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 border border-danger">
+    <div class="col-xxl-4 col-xl-4 col-lg-4 ">
       <router-outlet></router-outlet>
         <!-- <app-user ></app-user> -->
     </div>

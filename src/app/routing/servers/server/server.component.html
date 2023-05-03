@@ -1,3 +1,7 @@
-
-<p class="fw-semibold"> {{server.name}}</p>
-<p>Server Status {{server.status}}</p>
+<div>
+  <p class="fw-semibold">{{ server.name }}</p>
+  <p>Server Status {{ server.status }}</p>
+</div>
+<div class="allow-edit">
+  <button class="btn btn-primary" (click)="onEdit()">Edit Server</button>
+</div>
