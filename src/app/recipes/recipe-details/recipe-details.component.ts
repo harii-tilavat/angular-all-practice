@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from 'src/app/_model';
 import { RecipeService } from '../recipe.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
@@ -8,11 +9,15 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeDetailsComponent implements OnInit {
 
-  @Input() recipe!:Recipe;
+  public recipe!:Recipe;
   public flag:boolean=true;
-
-  constructor(private recipeService:RecipeService ) {}
+  public id!:number;
+  constructor(private recipeService:RecipeService, private route:ActivatedRoute,private router:Router ) {}
   ngOnInit():void{
+    this.route.params.subscribe((params:Params)=>{
+      this.id=params['id'];
+      this.recipe=this.recipeService.getRecipe(this.id);
+    })
   }
   check(){
     this.flag=!this.flag;
@@ -21,5 +26,9 @@ export class RecipeDetailsComponent implements OnInit {
   toAddShoopingList():void{
     this.recipeService.toAddShoppingList(this.recipe.ingredients);
     alert("Ingredients added Successfully");
+  }
+  onEditRecipe():void{
+    // this.router.navigate(['edit'], {relativeTo:this.route});
+    this.router.navigate(['../',this.id,'edit'], {relativeTo:this.route});
   }
 }

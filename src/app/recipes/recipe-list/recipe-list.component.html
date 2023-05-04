@@ -9,12 +9,12 @@
     </div>
   </div> -->
   <div class="col-12 py-2  ">
-    <button class="btn btn-success text-white" (click)="pushMethod()">New Recipe</button>
+    <button class="btn btn-success text-white" (click)="onNewRecipe()">New Recipe</button>
   </div>
 </div>
 <hr>
 <div class="row">
   <div class="col-12 ">
-    <app-recipe-item *ngFor="let item of recipe" [recipe]="item"></app-recipe-item>
+    <app-recipe-item *ngFor="let item of recipe;let i=index" [recipe]="item" [id]="i"></app-recipe-item>
   </div>
 </div>
