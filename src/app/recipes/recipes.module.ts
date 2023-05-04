@@ -6,28 +6,32 @@ import { RecipesComponent } from './recipes.component';
 import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DirectivesModule } from '../_directives/directives.module';
+import { RecipeStartComponent } from './recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 // import { DropdownDirective } from '../shared/dropdown.directive';
 
 const routes: Routes = [
-  { path: '', component: RecipesComponent }
-]
+  {
+    path: '',
+    component: RecipesComponent,
+    children: [
+      { path: 'new', component: RecipeEditComponent},
+      { path: ':id', component: RecipeDetailsComponent },
+      { path: ':id/edit', component: RecipeEditComponent },
+    ],
+  },
+];
 @NgModule({
   declarations: [
     RecipeDetailsComponent,
     RecipeListComponent,
     RecipesComponent,
     RecipeItemComponent,
+    RecipeStartComponent,
+    RecipeEditComponent,
     // DropdownDirective
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    DirectivesModule
-  ],
-  exports: [
-    RecipeDetailsComponent,
-    RecipeListComponent,
-    RecipeItemComponent,
-  ]
+  imports: [CommonModule, RouterModule.forChild(routes), DirectivesModule],
+  exports: [RecipeDetailsComponent, RecipeListComponent, RecipeItemComponent],
 })
-export class RecipesModule { }
+export class RecipesModule {}

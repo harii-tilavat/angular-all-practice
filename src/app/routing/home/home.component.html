@@ -1,10 +1,24 @@
 <div class="home">
-    <div>
-        <h4>Welcome to server manager</h4>
-        <p>Manage your servers and users</p>
+  <div>
+    <h4>Welcome to server manager</h4>
+    <p>Manage your servers and users</p>
+  </div>
+  <div class="control">
+    <div class="select mb-2">
+      <select name="" id="" class="form-control" #servers>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
     </div>
-    <div class="control">
-      <button type="button" class="btn btn-dark" (click)="loadServer(2)" >Load Servers</button> <hr>
+    <div>
+      <button type="button" class="btn btn-dark" (click)="loadServer(servers.value)">Load Server</button>
+      <hr>
       <p class="text-danger" *ngIf="isRedirect" #redirect>You will Redirect in {{loadSecond}} Seconds! </p>
     </div>
+  </div>
+  <div class="auth">
+    <button class="btn btn-primary" (click)="onLogin()">Login</button>
+    <button class="btn btn-primary mx-3" (click)="onLogout()">Logout</button>
+  </div>
 </div>

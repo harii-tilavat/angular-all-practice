@@ -17,7 +17,6 @@ export class DropdownDirective implements OnInit {
   constructor(private elRef: ElementRef) {}
 
   ngOnInit(): void {
-    console.log('Drodown Directive is Open');
   }
   // @HostListener('click' ,['$event']) onThisClick(){
   //   this.isOpen=true;

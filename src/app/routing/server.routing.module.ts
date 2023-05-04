@@ -5,6 +5,11 @@ import { HomeComponent } from './home/home.component';
 import { RoutingComponent } from './routing.component';
 import { UserComponent } from './routing-users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
+import { RoutingUsersComponent } from './routing-users/routing-users.component';
+import { ServerComponent } from './servers/server/server.component';
+import { AuthGuard, CanDeativateGuard, ServerResolver } from '../_services';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 const routes: Routes = [
   {
@@ -12,11 +17,31 @@ const routes: Routes = [
     component: RoutingComponent,
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'servers', component: ServersComponent },
-      { path: 'users', component: UserComponent },
-      { path: 'users/:id/:name', component: UserComponent },
-      { path: 'servers/:id/edit', component: EditServerComponent },
-      // { path: '**', redirectTo: 'home', pathMatch: 'full' },
+      {
+        path: 'users',
+        component: RoutingUsersComponent,
+        children: [{ path: ':id/:name', component: UserComponent }],
+      },
+
+      {
+        path: 'servers',
+        component: ServersComponent,
+        // canActivate:[AuthGuard],
+        canActivateChild: [AuthGuard],
+        children: [
+          { path: ':id', component: ServerComponent, resolve:{server:ServerResolver} },
+          {
+            path: ':id/edit',
+            component: EditServerComponent,
+            canDeactivate: [CanDeativateGuard],
+          },
+        ],
+      },
+      {
+        path: '**',
+        component: ErrorMessageComponent,
+        data: { message: 'Page Not found!' },
+      },
     ],
   },
 ];
