@@ -28,7 +28,7 @@ import { AuthGuard } from './_services';
     TodoComponent,
     TaskComponent,
     InterchargeComponent,
-    PromiseObservableComponent
+    PromiseObservableComponent,
   ],
   imports: [
     BrowserModule,

@@ -64,6 +64,12 @@ export class HeaderComponent implements OnInit {
     },
     {
       id: 8,
+      label: 'Observable',
+      routing: '/observable',
+      subMenu: [],
+    },
+    {
+      id: 9,
       label: 'Manage',
       routing: null,
       subMenu: [
@@ -87,6 +93,7 @@ export class HeaderComponent implements OnInit {
         },
       ],
     },
+
   ];
   @Output() haritDataSend = new EventEmitter<{
     name: string;

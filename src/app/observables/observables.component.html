@@ -1,0 +1,15 @@
+<div class="navigation">
+  <ul class="nav-tabs nav">
+    <li
+      class="nav-link"
+      *ngFor="let item of menuList; let i = index"
+      [routerLink]="item.routing"
+    >
+      {{ item.label }}
+    </li>
+  </ul>
+</div>
+<div>
+  <p *ngIf="userActivated">Activated!</p>
+</div>
+<router-outlet></router-outlet>
