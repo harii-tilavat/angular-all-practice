@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'todo-app', loadChildren:()=> import('./todo-app/todo-app.module').then(m=>m.TodoAppModule)},
   { path: 'routing', loadChildren: () => import('./routing/routing-server.module').then(m => m.RoutingServerModule) },
   { path:'observable', loadChildren:()=> import('./observables/observables.module').then(m=>m.ObservablesModule)},
+  { path:'forms', loadChildren:()=> import('./forms/forms.module').then(m=>m.FormsModule)},
   { path: 'testimonal', component: TestimonalComponent },
   { path: 'intercharge', component: InterchargeComponent },
 
