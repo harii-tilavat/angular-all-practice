@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-intercharge',
@@ -7,34 +7,67 @@ import { Component } from '@angular/core';
 })
 export class InterchargeComponent {
 
-  public user: { name: string, number: number } = {
-    name: "Harit",
-    number: 234234
-  }
-  public userDetails: any = [
-    {
-      name: "Harit",
-      sname: "Tilavat",
-      email: "abc@gmail.com",
-      number: 9898348993
-    },
-    {
-      name: "Rahul",
-      sname: "Tiwari",
-      email: "rahul@gmail.com",
-      number: 3456363563
-    },
-    {
-      name: "Karan",
-      sname: "Unagar",
-      email: "karan@gmail.com",
-      number: 5867556644
-    }
-  ];
-  constructor() {}
 
-  haritData(Data: { name: string, number: number }) {
-    console.log("Harit Data ! ");
-    console.log(Data);
+
+  ///
+  @Input() childName!: string;
+  @Input() childNumber!: number;
+  @Input() data!: any; //Object
+  @Output() updateDataEvent = new EventEmitter<{ name: string, number: number }>();
+  @Output() demoEvent = new EventEmitter<{ name: string, number: number }>();
+  @Output('hData') haritDataSend = new EventEmitter<{ name: string, number: number }>();
+  @Input() element!: { name: string, number: number };
+  // @ViewChild('element',{static:true}) element:ElementRef;
+  // @ContentChild('element') element:ElementRef
+  name!: string;
+  sname!: string;
+  email!: string;
+  number!: (number | string);
+
+  formData:any=[
+    {
+      desc:"Enter Your first Name",
+      refer:this.name,
+    },
+    {
+      desc:"Enter Your last Name",
+      refer:this.sname
+    },
+    {
+      desc:"Enter Your Email",
+      refer:this.email
+    },
+    {
+      desc:"Enter Your Number",
+      refer:this.number
+    }
+  ]
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    // console.log(this.sendData);
+  }
+
+  addData(): void {
+    console.log(this.data);
+    this.data.push({
+      name: this.name,
+      sname: this.sname,
+      email: this.email,
+      number: this.number
+    });
+    // alert(`${this.name} Bhai! Your Data Inserted Successfully! 😉`);
+    this.name = "";
+    this.sname = "";
+    this.email = "";
+    this.number = "";
+    this.updateDataEvent.emit({ name: "harit", number: 232323 });
+    this.demoEvent.emit({ name: "Harit Bhai ", number: 4535345 });
+    this.haritDataSend.emit({ name: "Harit", number: 25423452 });
+  }
+  localRef(input:any) {
+    console.log("Value of Input: ");
+    console.log(input.value);
   }
 }

@@ -7,64 +7,37 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild,C
 })
 export class DataInterchangeComponent implements OnInit {
 
-  @Input() childName!: string;
-  @Input() childNumber!: number;
-  @Input() data!: any; //Object
-  @Output() updateDataEvent = new EventEmitter<{ name: string, number: number }>();
-  @Output() demoEvent = new EventEmitter<{ name: string, number: number }>();
-  @Output('hData') haritDataSend = new EventEmitter<{ name: string, number: number }>();
-  @Input() element!: { name: string, number: number };
-  // @ViewChild('element',{static:true}) element:ElementRef;
-  // @ContentChild('element') element:ElementRef
-  name!: string;
-  sname!: string;
-  email!: string;
-  number!: (number | string);
-
-  formData:any=[
+  public user: { name: string, number: number } = {
+    name: "Harit",
+    number: 234234
+  }
+  public userDetails: any = [
     {
-      desc:"Enter Your first Name",
-      refer:this.name,
+      name: "Harit",
+      sname: "Tilavat",
+      email: "abc@gmail.com",
+      number: 9898348993
     },
     {
-      desc:"Enter Your last Name",
-      refer:this.sname
+      name: "Rahul",
+      sname: "Tiwari",
+      email: "rahul@gmail.com",
+      number: 3456363563
     },
     {
-      desc:"Enter Your Email",
-      refer:this.email
-    },
-    {
-      desc:"Enter Your Number",
-      refer:this.number
+      name: "Karan",
+      sname: "Unagar",
+      email: "karan@gmail.com",
+      number: 5867556644
     }
-  ]
-  constructor() {
-  }
-
+  ];
+  constructor() {}
   ngOnInit(): void {
-    // console.log(this.sendData);
   }
 
-  addData(): void {
-    console.log(this.data);
-    this.data.push({
-      name: this.name,
-      sname: this.sname,
-      email: this.email,
-      number: this.number
-    });
-    // alert(`${this.name} Bhai! Your Data Inserted Successfully! 😉`);
-    this.name = "";
-    this.sname = "";
-    this.email = "";
-    this.number = "";
-    this.updateDataEvent.emit({ name: "harit", number: 232323 });
-    this.demoEvent.emit({ name: "Harit Bhai ", number: 4535345 });
-    this.haritDataSend.emit({ name: "Harit", number: 25423452 });
+  haritData(Data: { name: string, number: number }) {
+    console.log("Harit Data ! ");
+    console.log(Data);
   }
-  localRef(input:any) {
-    console.log("Value of Input: ");
-    console.log(input.value);
-  }
+
 }

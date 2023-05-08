@@ -11,8 +11,11 @@ const routes: Routes = [
   { path: 'assignment2', loadChildren: () => import('./assignment2/assignment2.module').then(m => m.Assignment2Module) },
   { path: 'todo-app', loadChildren:()=> import('./todo-app/todo-app.module').then(m=>m.TodoAppModule)},
   { path: 'routing', loadChildren: () => import('./routing/routing-server.module').then(m => m.RoutingServerModule) },
+  { path:'observable', loadChildren:()=> import('./observables/observables.module').then(m=>m.ObservablesModule)},
+  { path:'forms', loadChildren:()=> import('./forms/forms.module').then(m=>m.TemplateFormsModule)},
   { path: 'testimonal', component: TestimonalComponent },
   { path: 'intercharge', component: InterchargeComponent },
+
   // { path: '**', redirectTo: 'recipes', pathMatch: 'full' }
 ];
 

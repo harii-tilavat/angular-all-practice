@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-12">
+      <div class="form-assignment2">
+        <form action="" [formGroup]="projectForm">
+          <div class="mb-3">
+            <label for="project-name" class="form-label">Project Name</label>
+            <input type="text" class="form-control" id="project-name" formControlName="projectName">
+            <div class="error-message" *ngIf="projectForm.controls['projectName'].touched">
+              <span class="error" *ngIf="projectForm.controls['projectName'].errors?.['required']">Required field!</span>
+              <span class="error" *ngIf="projectForm.controls['projectName'].errors?.['forbiddenName']">Invalid Name!</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="project-mail" class="form-label">Mail</label>
+            <input type="text" class="form-control" id="project-mail" formControlName="projectMail">
+            <div class="error-message" *ngIf="projectForm.controls['projectMail'].touched">
+              <span class="error" *ngIf="projectForm.controls['projectMail'].errors?.['required']">Required field!</span>
+              <span class="error" *ngIf="projectForm.controls['projectMail'].errors?.['email']">Invalid Email</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="project-status" class="form-label">Project Status</label>
+            <select id="project-status" class="form-control" formControlName="projectStatus" >
+              <option [value]="item" *ngFor="let item of projectStatus">{{item}}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-primary" (click)="onSubmitForm()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
