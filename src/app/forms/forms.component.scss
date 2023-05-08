@@ -7,3 +7,12 @@
     position: absolute;
   }
 }
+.form-label{
+  font-weight: 500;
+}
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+input.ng-valid.ng-touched {
+  border: 2px solid green;
+}

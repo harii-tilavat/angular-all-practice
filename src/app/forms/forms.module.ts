@@ -6,6 +6,7 @@ import { FormsComponent } from './forms.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormAssignment1Component } from './form-assignment1/form-assignment1.component';
 import { Form2Component } from './form2/form2.component';
+import { FormAssignment2Component } from './form-assignment2/form-assignment2.component';
 
 const routes:Routes=[
   {path:'', component:FormsComponent,children:[
@@ -18,7 +19,8 @@ const routes:Routes=[
     Form1Component,
     FormsComponent,
     FormAssignment1Component,
-    Form2Component
+    Form2Component,
+    FormAssignment2Component
   ],
   imports: [
     CommonModule,
