@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xxl-8 col-xl-8 col-lg-10 col-md-12 col-sm-12 border">
+      <form action="" #form2="ngForm">
+        <div class="form-head  p-3 my-2">
+          <h1>Regestration Form</h1>
+        </div>
+        <div class="form-body my-2">
+          <div class="mb-3">
+            <label for="email" class="form-label">Enter Email</label>
+            <input type="text" class="form-control" id="email" name="email" #email="ngModel" required ngModel email="">
+            <div class="error-message"  >
+              <span class="error" *ngIf="email.touched && !email.valid" >Required!</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="type" class="form-label">Subscription </label>
+            <select class="form-control" name="subscription" [ngModel]="defaultSubscription" ngModel >
+              <option  [value]="item" *ngFor="let item of subscription"  >{{item}} </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Enter Password</label>
+            <input type="password" class="form-control" id="password" name="password" #password="ngModel" required ngModel>
+            <div class="error-message"  >
+              <span class="error" *ngIf="password.touched && !password.valid" >Required!</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary" (click)="onSubmitForm(form2)">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-xxl-8 col-xl-8 col-lg-10 col-md-12 col-sm-12 border">
+      <div class="output">
+        <h4>Your Email:- {{emailValue}} </h4>
+        <h4>Your Subscription:- {{subscriptionValue}} </h4>
+        <h4>Your Password:- {{passwordValue}} </h4>
+      </div>
+    </div>
+  </div>
+</div>

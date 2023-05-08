@@ -1,0 +1,50 @@
+<div class="container " #getHeight>
+  <div class="row justify-content-center">
+    <div class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12">
+      <div class="form2">
+        <form action="" [formGroup]="signupForm" >
+          <div class="user-data">
+            <div class="mb-3">
+              <label for="username" class="form-label ">Username</label>
+              <input type="text" class="form-control" formControlName="username">
+              <div class="error-message"
+                *ngIf="!signupForm.controls['username'].valid && signupForm.controls['username'].touched">
+                <span class="error"> Username Required! </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label ">Email</label>
+              <input type="text" class="form-control" id="email" formControlName="email">
+              <div class="error-message" *ngIf="signupForm.controls['email'].touched">
+                <!-- <span class="error"
+                  *ngIf=" signupForm.controls['email'].value==null ||signupForm.controls['email'].value==''"> Email Required!
+                </span> -->
+                <span *ngIf="signupForm.controls['email'].errors?.['required']">Required</span>
+                <span *ngIf="signupForm.controls['email'].errors?.['email']">Invalid Email!</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div *ngFor="let item of gender">
+              <input type="radio" name="gender" [value]="item" [id]="item" formControlName="gender">
+              <label [for]="item" class="form-label  mx-2">{{item}} </label>
+            </div>
+          </div>
+          <div class="mb-3" formArrayName="hobbies">
+            <div class="add-hobby mb-2">
+              <label for="hobbies " class="d-block">Your Hobbies</label>
+              <button class="btn btn-dark" (click)="onAddHobby()">Add Hobby</button>
+            </div>
+            <div class="hobbies" *ngFor="let item of signupForm.value.hobbies;let i=index">
+              <input type="text" class="form-control mb-1" placeholder="Enter Hobby" >
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary" (click)="onSubmitForm()" >Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

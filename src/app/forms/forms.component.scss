@@ -1,0 +1,9 @@
+.error-message {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  color: red;
+  .error {
+    position: absolute;
+  }
+}

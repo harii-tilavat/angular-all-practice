@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestimonalComponent } from './testimonal/testimonal.component';
 import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
 const routes: Routes = [
-  // { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
   { path: 'shopping', loadChildren: () => import('./shopping-list/shopping.module').then(m => m.ShoppingModule) },
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'todo-app', loadChildren:()=> import('./todo-app/todo-app.module').then(m=>m.TodoAppModule)},
   { path: 'routing', loadChildren: () => import('./routing/routing-server.module').then(m => m.RoutingServerModule) },
   { path:'observable', loadChildren:()=> import('./observables/observables.module').then(m=>m.ObservablesModule)},
-  { path:'forms', loadChildren:()=> import('./forms/forms.module').then(m=>m.FormsModule)},
+  { path:'forms', loadChildren:()=> import('./forms/forms.module').then(m=>m.TemplateFormsModule)},
   { path: 'testimonal', component: TestimonalComponent },
   { path: 'intercharge', component: InterchargeComponent },
 

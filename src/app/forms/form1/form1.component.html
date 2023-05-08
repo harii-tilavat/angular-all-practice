@@ -2,29 +2,86 @@
   <div class="row justify-content-center">
     <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-12">
       <div class="forms">
-        <form action="">
-          <div class="mb-3">
-            <label for="username" class="form-label fw-semibold">Username</label>
-            <input type="text" class="form-control" id="username" />
+        <form #form="ngForm">
+          <div class="user-data" ngModelGroup="userData">
+            <div class="mb-4">
+              <div class="form-group">
+                <label for="username" class="form-label">Username </label>
+                <input type="text" class="form-control" id="username" name="username" #username="ngModel" ngModel
+                  required="" />
+              </div>
+              <div class="error-message" *ngIf="!username.valid && username.dirty">
+                <span class="error">Required filled</span>
+              </div>
+            </div>
+            <div class="mb-4">
+              <button type="button" class="btn btn-outline-dark">
+                Suggest me Username
+              </button>
+            </div>
+            <div class="mb-4">
+              <label for="mail" class="form-label">Mail</label>
+              <input type="text" class="form-control" id="mail" name="email" ngModel required email />
+            </div>
           </div>
-          <div class="mb-3">
-            <button class="btn btn-outline-dark">Suggest me Username</button>
+          <div class="other-data">
+            <div class="mb-4">
+              <label for="questions" class="form-label">Secret Questions</label>
+              <select name="secret" id="questions" class="form-control" [ngModel]="defaultQuestion">
+                <option value="pet">Your First Pet?</option>
+                <option value="teacher">Your First Teacher?</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <ng-container *ngFor="let item of gender; let i = index">
+                <input type="radio" [id]="'gender-' + i" [name]="'gender'" (click)="onChangeRadio($event)"
+                  [value]="item" ngModel />
+                <label [for]="'gender-' + i">
+                  {{ item }}
+                </label>
+              </ng-container>
+            </div>
+            <div class="mb-4">
+              <label for="question-answer" class="form-label">Your Message</label>
+              <textarea class="form-control" id="question-answer" name="qna" [(ngModel)]="questionAnswer"
+                rows="3"></textarea>
+              <div class="mb-4">
+                <span>Your Reply:- {{ questionAnswer }} </span>
+              </div>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="mail" class="form-label fw-semibold">Mail</label>
-            <input type="text" class="form-control" id="mail"/>
-          </div>
-          <div class="mb-3">
-            <label for="questions" class="form-label fw-semibold">Secret Questions</label>
-            <select name="" id="questions" class="form-control">
-              <option value="">Your First Pet?</option>
-              <option value="">Your First Teacher?</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <button class="btn btn-primary" type="submit">Submit</button>
+          <div class="submit-form">
+            <div class="mb-4">
+              <button type="submit" class="btn btn-primary" [disabled]="!form.valid" (click)="onSubmit()">
+                Submit
+              </button>
+            </div>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-10 col-sm-12">
+      <div class="form-values">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>Username</td>
+              <td>Email</td>
+              <td>Question</td>
+              <td>Message</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{userName}} </td>
+              <td>{{email}} </td>
+              <td>{{secretQuestion}} </td>
+              <td>{{message}} </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
