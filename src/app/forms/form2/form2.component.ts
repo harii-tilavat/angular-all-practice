@@ -19,14 +19,22 @@ export class Form2Component implements OnInit {
         Validators.required,
         this.forbiddenNames.bind(this),
       ]),
-      email: new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
+      email: new FormControl(null, [Validators.required,Validators.email], this.forbiddenEmails),
+      number:new FormControl(null, [Validators.required],[this.notValidNumber]),
       gender: new FormControl('Male', [Validators.required]),
+      age: new FormControl(null, [Validators.required]),
       hobbies: new FormArray([]),
     });
+    // this.signupForm.patchValue({
+    //   username:'Harit',
+    // });
+    // this.signupForm.valueChanges
+    //   .subscribe((data)=>{
+    //     console.log(data);
+    //   })
   }
   onSubmitForm(): void {
     console.warn(this.signupForm);
-    console.log(this.signupForm.controls['email'].errors?.['email']);
   }
   onAddHobby(): void {
     const control = new FormControl(null);
@@ -42,11 +50,31 @@ export class Form2Component implements OnInit {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (control.value === 'test@test.com') {
-          resolve({ 'emailForbidden': false });
+          resolve({ 'emailForbidden': true });
         } else {
           resolve(null);
         }
-      }, 2000);
+      });
+    });
+  }
+  notValidNumber(control:AbstractControl):Promise<any> | Observable<any>{
+    return new Promise((resolve,reject)=>{
+      if(control.value.length!=10){
+        resolve({'notValidNumber':true});
+      }
+      else{
+        resolve(null);
+      }
+    })
+  }
+  textNotAllowed(control:AbstractControl):Promise<any> | Observable<any> {
+    return new Promise((resolve,reject)=>{
+      if(isNaN(control.value)){
+        resolve({'textNotAllowed':true});
+      }
+      else{
+        resolve(null);
+      }
     });
   }
 }

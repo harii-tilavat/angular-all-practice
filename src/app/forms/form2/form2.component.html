@@ -2,25 +2,38 @@
   <div class="row justify-content-center">
     <div class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 col-sm-12">
       <div class="form2">
-        <form action="" [formGroup]="signupForm" >
+        <form action="" [formGroup]="signupForm">
           <div class="user-data">
             <div class="mb-3">
               <label for="username" class="form-label ">Username</label>
               <input type="text" class="form-control" formControlName="username">
-              <div class="error-message"
-                *ngIf="!signupForm.controls['username'].valid && signupForm.controls['username'].touched">
-                <span class="error"> Username Required! </span>
+              <div class="error-message" *ngIf="signupForm.controls['username'].touched">
+                <span class="error" *ngIf=" signupForm.controls['username'].invalid"> Username Required! </span>
               </div>
             </div>
             <div class="mb-3">
               <label for="email" class="form-label ">Email</label>
               <input type="text" class="form-control" id="email" formControlName="email">
               <div class="error-message" *ngIf="signupForm.controls['email'].touched">
-                <!-- <span class="error"
-                  *ngIf=" signupForm.controls['email'].value==null ||signupForm.controls['email'].value==''"> Email Required!
-                </span> -->
-                <span *ngIf="signupForm.controls['email'].errors?.['required']">Required</span>
-                <span *ngIf="signupForm.controls['email'].errors?.['email']">Invalid Email!</span>
+                <span class="error" *ngIf="signupForm.controls['email'].errors?.['required']">Email Required!</span>
+                <span class="error" *ngIf="signupForm.controls['email'].errors?.['email']">Invalid Email!</span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="number" class="form-label ">Number</label>
+              <input type="text" class="form-control" id="number" formControlName="number">
+              <div class="error-message" *ngIf="signupForm.controls['number'].touched">
+                <span class="error" *ngIf="signupForm.controls['number'].errors?.['required']"> Number Required!</span>
+                <span class="error" *ngIf="signupForm.controls['number'].errors?.['notValidNumber']">
+                  Invalid number!
+                </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="age" class="form-label">Enter Birth Date</label>
+              <input type="date" class="form-control" formControlName="age">
+              <div class="error-message" *ngIf="signupForm.controls['age'].touched">
+                <span class="error" *ngIf="signupForm.controls['age'].errors?.['required']">Age Required!</span>
               </div>
             </div>
           </div>
@@ -36,11 +49,11 @@
               <button class="btn btn-dark" (click)="onAddHobby()">Add Hobby</button>
             </div>
             <div class="hobbies" *ngFor="let item of signupForm.value.hobbies;let i=index">
-              <input type="text" class="form-control mb-1" placeholder="Enter Hobby" >
+              <input type="text" class="form-control mb-1" placeholder="Enter Hobby">
             </div>
           </div>
           <div class="mb-3">
-            <button type="submit" class="btn btn-primary" (click)="onSubmitForm()" >Submit
+            <button type="submit" class="btn btn-primary" (click)="onSubmitForm()">Submit
             </button>
           </div>
         </form>
