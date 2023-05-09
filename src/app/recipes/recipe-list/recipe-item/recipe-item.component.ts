@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Recipe } from 'src/app/_model';
-import { RecipeService } from '../../recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RecipeService } from 'src/app/_services';
 @Component({
   selector: 'app-recipe-item',
   templateUrl: './recipe-item.component.html',

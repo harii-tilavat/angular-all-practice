@@ -1,25 +1,33 @@
-<div class=" row ">
-  <div class="col-12">
-    <form action="">
-      <div class="row my-3">
-        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-          <div class="form">
-            <label for="name" class="fw-bold">Name</label>
-            <input type="text" class="form-control" id="name" #nameInput>
+<div class="row">
+  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+    <form action="" [formGroup]="shoppingForm">
+      <div class="row">
+        <div class="col-xxl-8 col-xl-4 col-lg-4 col-md-6 col-sm-6 ">
+          <div class="mb-3">
+            <label for="item-name" class="form-label fw-bold">Name</label>
+            <input type="text" class="form-control" id="item-name" formControlName="itemName">
+            <div class="error-message" *ngIf="shoppingForm.controls['itemName'].touched">
+              <span class="error" *ngIf="shoppingForm.controls['itemName'].errors?.['required']" >Name Required!</span>
+            </div>
           </div>
         </div>
-        <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
-          <div class="form">
-            <label for="amount" class="fw-bold">Amount</label>
-            <input type="number" class="form-control" id="amount" #amountInput>
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+          <label for="item-amount" class="form-label fw-bold">Amount</label>
+          <input type="number" class="form-control" id="item-amount" formControlName="itemAmount">
+          <div class="error-message" *ngIf="shoppingForm.controls['itemAmount'].touched">
+            <span class="error" *ngIf="shoppingForm.controls['itemAmount'].errors?.['required']" >Amount Required!</span>
+            <span class="error" *ngIf="shoppingForm.controls['itemAmount'].errors?.['isNagative']" >Invalid Amount!</span>
           </div>
         </div>
       </div>
-      <div class="row  button my-3">
-        <div class="col-12">
-          <button type="button" class="btn btn-success" (click)="addItem(nameInput.value,amountInput.value)">Add</button>
-          <button type="button" class="btn btn-danger mx-3">Delete</button>
-          <button type="button" class="btn btn-primary" >Clear</button>
+      <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 my-4">
+          <div class="controls">
+            <button type="button" class="btn btn-success "
+              (click)="onSubmit(shoppingForm.controls['itemName'].value,shoppingForm.controls['itemAmount'].value)" [disabled]="shoppingForm.invalid">{{editMode?'Update':'Add'}}</button>
+            <button type="button" class="btn btn-danger mx-2" *ngIf="editMode" (click)="onDeleteItem()" >Delete</button>
+            <button type="button" class="btn btn-primary mx-2" (click)="clearForm()">Clear</button>
+          </div>
         </div>
       </div>
     </form>

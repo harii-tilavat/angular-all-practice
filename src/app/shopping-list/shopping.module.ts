@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes:Routes=[
   {path:'', component:ShoppingListComponent},
-  
+
 ]
 
 @NgModule({
@@ -16,6 +17,7 @@ const routes:Routes=[
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   exports:[
