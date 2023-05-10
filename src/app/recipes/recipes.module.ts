@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DirectivesModule } from '../_directives/directives.module';
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 // import { DropdownDirective } from '../shared/dropdown.directive';
 
 const routes: Routes = [
@@ -31,7 +32,7 @@ const routes: Routes = [
     RecipeEditComponent,
     // DropdownDirective
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), DirectivesModule],
+  imports: [CommonModule, RouterModule.forChild(routes), DirectivesModule,ReactiveFormsModule],
   exports: [RecipeDetailsComponent, RecipeListComponent, RecipeItemComponent],
 })
 export class RecipesModule {}

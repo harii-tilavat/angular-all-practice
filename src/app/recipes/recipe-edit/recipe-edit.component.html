@@ -1,1 +1,70 @@
-<p>recipe-edit works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <form action="" [formGroup]="recipeForm">
+        <div class="mb-3">
+          <label for="recipe-name" class="form-label fw-bold">Name</label>
+          <input type="text" class="form-control" id="recipe-name" formControlName="recipeName">
+          <div class="error-message" *ngIf="recipeForm.controls['recipeName'].touched">
+            <span class="error" *ngIf="recipeForm.controls['recipeName'].invalid">Name Required!</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="image-path" class="form-label fw-bold">Image Url</label>
+          <input type="text" class="form-control" id="image-path" formControlName="recipeUrl">
+          <div class="error-message" *ngIf="recipeForm.controls['recipeUrl'].touched">
+            <span class="error" *ngIf="recipeForm.controls['recipeUrl'].invalid">Url Required!</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label fw-bold">Description</label>
+          <textarea name="" id="description" rows="5" class="form-control" formControlName="recipeDescription"></textarea>
+          <div class="error-message" *ngIf="recipeForm.controls['recipeDescription'].touched">
+            <span class="error" *ngIf="recipeForm.controls['recipeDescription'].invalid">Description Required!</span>
+          </div>
+        </div>
+        <div class="mb-3" *ngIf="recipeForm.value['recipeUrl']!=''">
+          <div class="image-preview">
+            <div>
+              <label for="" class="form-label fw-bold">Image Preview</label>
+            </div>
+            <div>
+              <span>
+                <img [src]="recipeForm.value['recipeUrl']" alt="image-preview">
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 py-2" formArrayName="ingredients">
+          <div class="row my-3" *ngFor="let item of recipeForm.controls['ingredients'].controls;let i=index" [formGroupName]="i" [id]="'ing-'+i" >
+            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12" >
+              <input type="text" class="form-control" id="" formControlName="name" >
+            </div>
+            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-12">
+              <input type="number" class="form-control" id="" formControlName="amount" >
+            </div>
+            <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-12">
+              <div class="cancle-btn">
+                <button type="button" class="btn bg-danger text-white" (click)="onDeleteIngredient(i)">X</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="add-item">
+            <button type="button" class="btn btn-primary" (click)="onIngredientAdd()">Add Ingredient</button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="confirm mt-4">
+            <!-- <button type="submit" [disabled]="!recipeForm.valid" (submit)="onSaveRecipe()">
+              Save
+            </button> -->
+            <button type="button" class="btn btn-success" (click)="onSaveRecipe()" [disabled]="!recipeForm.valid">Save</button>
+            <button type="button" class="btn btn-danger mx-2" (click)="onCancleRecipe()">Cancle</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,24 +1,20 @@
-<div class="row p-2">
-  <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-12">
-    <div class="shopping-edit">
-      <h2>Shopping Edit</h2>
-    </div>
-    <div class="shopping-edit">
-      <app-shopping-edit></app-shopping-edit>
-    </div>
-    <div class="shopping-list">
-      <ul class="list-group ">
-        <a class="list-group-item d-flex justify-content-between" *ngFor="let item of ingredients;let i=index" >
-          {{item.name}} - {{item.amount}}
-          <div class="input" *ngIf="showInput==i">
-            <input type="text" name="" id="" class="form-control">
-          </div>
-          <div class="button-group ">
-            <button class="btn btn-success " (click)="toggleInput(i)">Edit</button>
-            <button class="btn btn-danger mx-3" (click)="deleteItem(i)" >Delete </button>
-          </div>
-        </a>
-      </ul>
+<div class="container">
+  <div class="row p-2">
+    <div class="col-xxl-8 col-xl-8 col-lg-10 col-md-12 col-sm-12">
+      <div class="shopping-edit">
+        <app-shopping-edit></app-shopping-edit>
+      </div>
+      <div class="shopping-list">
+        <ul class="list-group">
+          <a class="list-group-item d-flex justify-content-between" *ngFor="let item of ingredients;let i=index" (click)="onEditItem(i)" >
+            {{item.name}} - {{item.amount}}
+            <div class="input" *ngIf="showInput==i">
+              <input type="text" name="" id="" class="form-control">
+            </div>
+          </a>
+        </ul>
+      </div>
     </div>
   </div>
+
 </div>

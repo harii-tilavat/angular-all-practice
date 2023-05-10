@@ -1,0 +1,17 @@
+.form-control.ng-invalid.ng-touched {
+  border: 2px solid red;
+  animation: test 0.3s ease-in forwards;
+}
+.form-control.ng-valid.ng-touched {
+  border: 2px solid green;
+}
+.error-message {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  .error {
+    position: absolute;
+    color: red;
+  }
+}
+

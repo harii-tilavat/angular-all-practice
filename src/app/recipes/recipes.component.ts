@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { RecipeService } from './recipe.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { RecipeService } from '../_services';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss'],
-  providers:[RecipeService]
+  encapsulation:ViewEncapsulation.None
 })
 export class RecipesComponent implements OnInit {
   constructor(private recipeService:RecipeService) { }

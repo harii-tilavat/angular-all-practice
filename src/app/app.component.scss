@@ -2,3 +2,12 @@ h1{
   background-color: red;
 }
 
+.error-message {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  color: red;
+  .error {
+    position: absolute;
+  }
+}

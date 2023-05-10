@@ -1,0 +1,10 @@
+.image-preview{
+  display: flex;
+      flex-direction: column;
+      width: 250px;
+    // height: 250px;
+    img{
+      height: 100%;
+      width: 100%;
+    }
+}
