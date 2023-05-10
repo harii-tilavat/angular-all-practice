@@ -26,7 +26,6 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     .subscribe((index: number) => {
       this.editItemIndex = index;
       this.editMode = true;
-      console.log(this.editItemIndex);
       this.editedItem = this.shoppingListService.getIngredient(index);
       this.shoppingForm.setValue({
         itemName: this.editedItem.name,

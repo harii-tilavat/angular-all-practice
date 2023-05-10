@@ -4,8 +4,7 @@ import { RecipeService } from '../_services';
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss'],
-  encapsulation:ViewEncapsulation.None,
-  providers:[RecipeService]
+  encapsulation:ViewEncapsulation.None
 })
 export class RecipesComponent implements OnInit {
   constructor(private recipeService:RecipeService) { }

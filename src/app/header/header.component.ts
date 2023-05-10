@@ -17,82 +17,84 @@ export class HeaderComponent implements OnInit {
       label: 'Recipes',
       routing: '/recipes',
       subMenu: [
-        {
-          id: 101,
-          label: 'Shopping List',
-          routing: '/shopping',
-          subMenu: [],
-        },
       ],
     },
 
     {
       id: 2,
+      label: 'Shopping',
+      routing: '/shopping',
+      subMenu: [
+      ],
+    },
+
+    {
+      id: 3,
       label: 'Accounts',
       routing: '/accounts',
       subMenu: [],
     },
     {
-      id: 3,
+      id: 4,
       label: 'Routing',
       routing: ['routing','home'],
       subMenu: [],
     },
     {
-      id: 4,
+      id: 5,
       label: 'Testimonal',
       routing: '/testimonal',
       subMenu: [],
     },
     {
-      id: 5,
+      id: 6,
       label: 'Game',
       routing: '/assignment2',
       subMenu: [],
     },
     {
-      id: 6,
+      id: 7,
       label: 'Users',
       routing: '/users/active',
       subMenu: [],
     },
     {
-      id: 7,
+      id: 8,
       label: 'Todo',
       routing: '/todo-app',
       subMenu: [],
     },
     {
-      id: 8,
+      id: 9,
       label: 'Observable',
       routing: '/observable',
       subMenu: [],
     },
     {
-      id: 9,
+      id: 10,
       label: 'Forms',
       routing: '/forms',
       subMenu: [],
     },
     {
-      id: 10,
+      id: 11,
       label: 'Manage',
       routing: null,
       subMenu: [
         {
-          id: 1001,
+          id: 1101,
           label: 'Action',
           routing: null,
           subMenu: [],
         },
         {
-          id: 1002,
+          id: 1102,
           label: 'Another action',
           routing: null,
           subMenu: [],
         },
         {
-          id: 903,
+          id: 1103,
           label: 'Something else here',
           routing: null,
           subMenu: [],

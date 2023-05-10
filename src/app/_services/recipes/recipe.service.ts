@@ -34,4 +34,18 @@ export class RecipeService {
   toAddShoppingList(ingredient: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredient);
   }
+  toAddRecipe(recipe:Recipe):void{
+    this.recipes.push(recipe);
+    console.warn(this.recipes);
+    this.recipeChange.next(this.recipes.slice());
+  }
+  toUpdateRecipe(index:number, newRecipe:Recipe):void{
+    this.recipes[index]=newRecipe;
+    this.recipeChange.next(this.recipes.slice());
+  }
+  toDeleteRecipe(index:number){
+    this.recipes.splice(index,1);
+    this.recipeChange.next(this.recipes.slice());
+    console.log(this.recipes);
+  }
 }

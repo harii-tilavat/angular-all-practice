@@ -23,8 +23,20 @@
             <span class="error" *ngIf="recipeForm.controls['recipeDescription'].invalid">Description Required!</span>
           </div>
         </div>
-        <div class="mb-3" formArrayName="ingredients">
-          <div class="row mt-5" *ngFor="let item of recipeForm.controls['ingredients'].value;let i=index" [formGroupName]="i" >
+        <div class="mb-3" *ngIf="recipeForm.value['recipeUrl']!=''">
+          <div class="image-preview">
+            <div>
+              <label for="" class="form-label fw-bold">Image Preview</label>
+            </div>
+            <div>
+              <span>
+                <img [src]="recipeForm.value['recipeUrl']" alt="image-preview">
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 py-2" formArrayName="ingredients">
+          <div class="row my-3" *ngFor="let item of recipeForm.controls['ingredients'].controls;let i=index" [formGroupName]="i" [id]="'ing-'+i" >
             <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12" >
               <input type="text" class="form-control" id="" formControlName="name" >
             </div>
@@ -33,15 +45,23 @@
             </div>
             <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-12">
               <div class="cancle-btn">
-                <button type="button" class="btn bg-danger text-white">X</button>
+                <button type="button" class="btn bg-danger text-white" (click)="onDeleteIngredient(i)">X</button>
               </div>
             </div>
           </div>
         </div>
         <div class="mb-3">
+          <div class="add-item">
+            <button type="button" class="btn btn-primary" (click)="onIngredientAdd()">Add Ingredient</button>
+          </div>
+        </div>
+        <div class="mb-3">
           <div class="confirm mt-4">
-            <button type="button" class="btn btn-success">Save</button>
-            <button type="button" class="btn btn-danger mx-2">Cancle</button>
+            <!-- <button type="submit" [disabled]="!recipeForm.valid" (submit)="onSaveRecipe()">
+              Save
+            </button> -->
+            <button type="button" class="btn btn-success" (click)="onSaveRecipe()" [disabled]="!recipeForm.valid">Save</button>
+            <button type="button" class="btn btn-danger mx-2" (click)="onCancleRecipe()">Cancle</button>
           </div>
         </div>
       </form>

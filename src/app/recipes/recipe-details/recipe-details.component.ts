@@ -15,7 +15,7 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(private recipeService:RecipeService, private route:ActivatedRoute,private router:Router ) {}
   ngOnInit():void{
     this.route.params.subscribe((params:Params)=>{
-      this.id=params['id'];
+      this.id=+params['id'];
       this.recipe=this.recipeService.getRecipe(this.id);
     })
   }
@@ -30,5 +30,9 @@ export class RecipeDetailsComponent implements OnInit {
   onEditRecipe():void{
     this.router.navigate(['edit'],{relativeTo:this.route});
     // this.router.navigate(['../',this.id,'edit'], {relativeTo:this.route});
+  }
+  onDelete():void{
+    this.recipeService.toDeleteRecipe(this.id);
+    this.router.navigate(['../'],{relativeTo:this.route});
   }
 }

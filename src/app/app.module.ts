@@ -15,7 +15,7 @@ import { TaskComponent } from './todo-app/task/task.component';
 import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
 import { DirectivesModule } from './_directives/directives.module';
 import { PromiseObservableComponent } from './practice-component/promise-observable/promise-observable.component';
-import { AuthGuard, ShoppingListService } from './_services';
+import { AuthGuard, RecipeService, ShoppingListService } from './_services';
 
 @NgModule({
   declarations: [
