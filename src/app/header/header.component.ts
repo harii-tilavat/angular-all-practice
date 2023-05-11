@@ -78,6 +78,12 @@ export class HeaderComponent implements OnInit {
     },
     {
       id: 11,
+      label: 'Pipe',
+      routing: '/pipes',
+      subMenu: [],
+    },
+    {
+      id: 12,
       label: 'Manage',
       routing: null,
       subMenu: [

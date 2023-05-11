@@ -12,7 +12,6 @@ export class RecipeItemComponent implements OnInit {
   @Input() id!:number;
   constructor(private recipeService:RecipeService,private router:Router,private route:ActivatedRoute ) {}
   ngOnInit():void{
-    console.log("Value of Recipe: ");
   }
   // onSelected(){
   //   this.recipeService.recipeSelected.emit(this.recipe);
