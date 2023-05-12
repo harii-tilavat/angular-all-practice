@@ -11,9 +11,9 @@ import { InterchargeComponent } from './data-interchange/intercharge/intercharge
 import { DirectivesModule } from './_directives/directives.module';
 import { AuthGuard, ShoppingListService } from './_services';
 import { TestimonalComponent } from './testimonal/testimonal.component';
+import { ShortenPipe, FilterPipe, RevercePipe, CapitalizePipe } from './_pipes';
 import { PipesComponent } from './pipes/pipes.component';
-import { FilterPipe, RevercePipe, ShortenPipe } from './_pipes';
-import { CapitalizePipe } from './_pipes/capitalize/capitalize.pipe';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { CapitalizePipe } from './_pipes/capitalize/capitalize.pipe';
     ShortenPipe,
     FilterPipe,
     RevercePipe,
-    CapitalizePipe
+    CapitalizePipe,
   ],
   imports: [
     BrowserModule,

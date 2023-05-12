@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'routing', loadChildren: () => import('./routing/routing-server.module').then(m => m.RoutingServerModule) },
   { path: 'observable', loadChildren: () => import('./observables/observables.module').then(m => m.ObservablesModule) },
   { path: 'forms', loadChildren: () => import('./forms/forms.module').then(m => m.TemplateFormsModule) },
+  { path:'http-request', loadChildren:()=> import('./http-requests/http-requests.module').then(m=>m.HttpRequestsModule)},
   { path: 'pipes', component: PipesComponent },
   { path: 'testimonal', component: TestimonalComponent },
   { path: 'intercharge', component: InterchargeComponent },

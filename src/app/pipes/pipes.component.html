@@ -45,7 +45,7 @@
       </div>
       <div class="content my-4">
         <div class="info bg-light">
-          <p class="p-4" [ngStyle]="{'background-color': isDisplay?'red':'green'}">{{'lorem IPSUM dolor sit amet' | capitalize | uppercase | lowercase | reverce | capitalize }}</p>
+          <p class="p-4" [ngClass]="{'d-none':isDisplay}">{{'lorem IPSUM dolor sit amet' | capitalize }}</p>
         </div>
         <div class="button">
           <button class="btn btn-dark" (click)="onClick()">Click to hide</button>

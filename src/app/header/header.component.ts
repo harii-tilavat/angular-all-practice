@@ -84,6 +84,12 @@ export class HeaderComponent implements OnInit {
     },
     {
       id: 12,
+      label: 'Http',
+      routing: '/http-request',
+      subMenu: [],
+    },
+    {
+      id: 13,
       label: 'Manage',
       routing: null,
       subMenu: [
