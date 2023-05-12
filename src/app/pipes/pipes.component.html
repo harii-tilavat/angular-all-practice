@@ -6,7 +6,7 @@
           <label for="server-status">Enter Server Status</label>
           <input type="text" class="form-control" [(ngModel)]="serverStatus">
           <div>
-            <h3>App Status:- {{appStatus | async}}  </h3>
+            <h3>App Status:- {{appStatus | async }}  </h3>
           </div>
         </div>
         <div class="mb-3">
@@ -17,16 +17,16 @@
       <div class="servers">
         <ul class="list-group ">
           <li class="list-group-item" [ngClass]="getServer(item)"
-            *ngFor="let item of servers | filter:serverStatus:'status'">
+            *ngFor="let item of servers | filter:serverStatus:'status' ">
             <div class="row">
-              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
+              <div [class]="'col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3'">
                 <span>
-                  {{item.name | shorten:8  }}
+                  {{item.name | shorten:8 }}
                 </span>
               </div>
               <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
                 <span>
-                  {{item.instanceType | uppercase}}
+                  {{item.instanceType | uppercase | capitalize}}
                 </span>
               </div>
               <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
@@ -42,6 +42,14 @@
             </div>
           </li>
         </ul>
+      </div>
+      <div class="content my-4">
+        <div class="info bg-light">
+          <p class="p-4" [ngStyle]="{'background-color': isDisplay?'red':'green'}">{{'lorem IPSUM dolor sit amet' | capitalize | uppercase | lowercase | reverce | capitalize }}</p>
+        </div>
+        <div class="button">
+          <button class="btn btn-dark" (click)="onClick()">Click to hide</button>
+        </div>
       </div>
     </div>
   </div>

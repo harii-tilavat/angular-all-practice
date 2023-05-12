@@ -13,6 +13,7 @@ import { AuthGuard, ShoppingListService } from './_services';
 import { TestimonalComponent } from './testimonal/testimonal.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { FilterPipe, RevercePipe, ShortenPipe } from './_pipes';
+import { CapitalizePipe } from './_pipes/capitalize/capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FilterPipe, RevercePipe, ShortenPipe } from './_pipes';
     PipesComponent,
     ShortenPipe,
     FilterPipe,
-    RevercePipe
+    RevercePipe,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,

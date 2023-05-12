@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PipesComponent implements OnInit {
   public serverStatus:string='';
+  public isDisplay:boolean=false;
   public appStatus:Promise<any>=new Promise((resolve,reject)=>{
     setTimeout(()=>{
       resolve('stable');
@@ -16,7 +17,7 @@ export class PipesComponent implements OnInit {
   public servers:{instanceType:string,name:string,status:string,started:Date}[]=[
     {
       instanceType:'medium',
-      name:'Production Server',
+      name:'Production Server' ,
       status: 'stable',
       started:new Date(15,1,2022)
     },
@@ -57,5 +58,8 @@ export class PipesComponent implements OnInit {
       status:'offline',
       started:new Date(10,1,2022)
     })
+  }
+  onClick():void{
+    this.isDisplay=!this.isDisplay;
   }
 }
