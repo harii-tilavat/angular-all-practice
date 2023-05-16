@@ -8,6 +8,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class PostsService {
+  public test:string='this is test';
   public loadedPost!: Post[];
   public error=new Subject<string>();
   constructor(private http: HttpClient) {}
