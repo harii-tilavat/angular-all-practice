@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { COMPILER_OPTIONS, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { map } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Post } from '../_model';
+import { PostsService } from './posts.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-http-requests',
@@ -10,46 +13,40 @@ import { map } from 'rxjs';
 })
 export class HttpRequestsComponent implements OnInit {
   public httpForm!: FormGroup;
-  public testArray:number[]=[1,2,3,4,5];
-  public testObject:{}={
-    name:'hello',
-    age:20
-  }
-  constructor(private http: HttpClient) { }
+  public loadedPost: Post[] = [];
+  public isFetching: boolean = false;
+  public error: null = null;
+  constructor(private http: HttpClient, private postsService: PostsService) { }
   ngOnInit(): void {
-    console.log(this.testArray);
-    console.log(this.testObject);
     this.httpForm = new FormGroup({
       title: new FormControl(null, [Validators.required]),
       content: new FormControl(null, [Validators.required]),
     });
-    this.fetchPost();
+    this.postsService.error
+    .subscribe((error)=>{
+      console.warn(error);
+    });
+    this.onFetchPost();
   }
- public onCreatePost(): void {
-    this.http
-      .post(
-        'https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json',
-        this.httpForm.value
-      )
-      .subscribe((response: any) => {
+  onCreatePost(): void {
+    this.postsService.onCreatePost(this.httpForm.value.title, this.httpForm.value.content);
+  }
+  onFetchPost(): void {
+    this.isFetching = true;
+    this.postsService.onFetchPost()
+      .subscribe((response) => {
+        this.isFetching = false;
+        this.loadedPost = response;
+      },(error)=>{
+        this.isFetching = false;
+        this.error=error.message;
       });
   }
-
-  private fetchPost():void{
-    this.http.get('https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json')
-    .pipe(map((responseData:{[key:string]:any})=>{
-      const postArray=[];
-      console.log(responseData);
-      for(const key in responseData){
-        console.warn(responseData[key]);
-        // postArray.push(responseData[key])
-      }
-    }))
-    .subscribe((response)=>{
-      console.log(response);
-    })
+  onOkay():void{
+    this.error=null;
   }
-  public fetchPost2():void{
-    this.fetchPost();
+  onDeletePost(): void {
+    this.postsService.onDeletePost()
+      .subscribe()
   }
 }

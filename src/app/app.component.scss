@@ -1,11 +1,6 @@
-h1{
-  background-color: red;
-}
-
 .error-message {
   position: relative;
-  display: flex;
-  justify-content: start;
+  display: flex-start;
   color: red;
   .error {
     position: absolute;

@@ -4,6 +4,7 @@ import { HttpRequestsComponent } from './http-requests.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PostsService } from './posts.service';
 
 const routes:Routes=[
   {path:'', component:HttpRequestsComponent},
@@ -12,7 +13,7 @@ const routes:Routes=[
 
 @NgModule({
   declarations: [
-    HttpRequestsComponent
+    HttpRequestsComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +21,7 @@ const routes:Routes=[
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     HttpClientModule
-  ]
+  ],
+  providers:[PostsService]
 })
 export class HttpRequestsModule { }
