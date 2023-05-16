@@ -24,8 +24,6 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         this.editMode = params['id'] != null;
         this.initForm();
       });
-    console.warn(this.recipeForm.controls['ingredients']);
-    console.warn(this.recipeForm);
 
   }
   onIngredientAdd(): void {

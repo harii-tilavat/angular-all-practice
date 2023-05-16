@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+      <form action="" [formGroup]="httpForm">
+        <div class="mb-3">
+          <label for="http-title" class="form-label fw-semibold">Title</label>
+          <input type="text" class="form-control" id="http-title" formControlName="title">
+        </div>
+        <div class="mb-3">
+          <label for="http-content" class="form-label fw-semibold">Content</label>
+          <input type="text" class="form-control " id="http-content" formControlName="content">
+        </div>
+        <div class="mb-3">
+          <div class="send-post">
+            <button class="btn btn-primary" [disabled]="!httpForm.valid" (click)="onCreatePost()">Send Post</button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="send-post">
+            <hr>
+            <button class="btn btn-primary" (click)="onFetchPost()">Fetch Post</button>
+            <button class="btn btn-danger mx-3 " (click)="onDeletePost()">Clear Post</button>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="no-post" >
+            <ng-container *ngIf="loadedPost.length>0 ; else noPostAvailabel">
+              <ng-container *ngIf="!isFetching">
+                <div class="loaded-post">
+                  <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let item of loadedPost">
+                      <h3>{{item.title}}</h3>
+                      <p> {{item.content}}</p>
+                    </li>
+                  </ul>
+                </div>
+              </ng-container>
+            </ng-container>
+            <ng-template #noPostAvailabel>
+              <p>No post available!</p>
+            </ng-template >
+            <ng-container *ngIf="error">
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <div>
+                  <h3>An Error occurred!</h3>
+                  <p>{{error}}</p>
+                  <div class="okay">
+                    <button class="btn btn-danger" (click)="onOkay()">Okay</button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="isFetching && !error" >
+              <div class="loader text-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only"></span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="get-server">
+        <div class="mb-3">
+          <label for="server-status">Enter Server Status</label>
+          <input type="text" class="form-control" [(ngModel)]="serverStatus">
+          <div>
+            <h3>App Status:- {{appStatus | async }}  </h3>
+          </div>
+        </div>
+        <div class="mb-3">
+          <button type="button" class="btn btn-primary" (click)="onAddNewServer()">Add Server</button>
+        </div>
+
+      </div>
+      <div class="servers">
+        <ul class="list-group ">
+          <li class="list-group-item" [ngClass]="getServer(item)"
+            *ngFor="let item of servers | filter:serverStatus:'status' ">
+            <div class="row">
+              <div [class]="'col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3'">
+                <span>
+                  {{item.name | shorten:8 }}
+                </span>
+              </div>
+              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                <span>
+                  {{item.instanceType | uppercase | capitalize}}
+                </span>
+              </div>
+              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                <span>
+                  {{item.started | date }}
+                </span>
+              </div>
+              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                <span>
+                  {{item.status}}
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="content my-4">
+        <div class="info bg-light">
+          <p class="p-4" [ngClass]="{'d-none':isDisplay}">{{'lorem IPSUM dolor sit amet' | capitalize }}</p>
+        </div>
+        <div class="button">
+          <button class="btn btn-dark" (click)="onClick()">Click to hide</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

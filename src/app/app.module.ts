@@ -7,27 +7,26 @@ import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './header/header.component';
 import { DataInterchangeComponent } from './data-interchange/data-interchange.component';
-import { TestimonalComponent } from './testimonal/testimonal.component';
-
-import { TodoAppComponent } from './todo-app/todo-app.component';
-import { TodoComponent } from './todo-app/todo/todo.component';
-import { TaskComponent } from './todo-app/task/task.component';
 import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
 import { DirectivesModule } from './_directives/directives.module';
-import { PromiseObservableComponent } from './practice-component/promise-observable/promise-observable.component';
-import { AuthGuard, RecipeService, ShoppingListService } from './_services';
+import { AuthGuard, ShoppingListService } from './_services';
+import { TestimonalComponent } from './testimonal/testimonal.component';
+import { ShortenPipe, FilterPipe, RevercePipe, CapitalizePipe } from './_pipes';
+import { PipesComponent } from './pipes/pipes.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DataInterchangeComponent,
-    TestimonalComponent,
-    TodoAppComponent,
-    TodoComponent,
-    TaskComponent,
     InterchargeComponent,
-    PromiseObservableComponent,
+    TestimonalComponent,
+    PipesComponent,
+    ShortenPipe,
+    FilterPipe,
+    RevercePipe,
+    CapitalizePipe,
   ],
   imports: [
     BrowserModule,
