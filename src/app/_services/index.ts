@@ -7,3 +7,4 @@ export * from './servers/servers.service';
 export * from './servers/server-resolver.service';
 export * from './shopping-list/shopping-list.service';
 export * from './recipes/recipe.service';
+export * from './recipes/data-storage.service';

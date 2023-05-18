@@ -6,7 +6,7 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Post, PostResponseModel, RootResponseModel } from '../_model';
+import { FetchResponseModel, Post, PostResponseModel, RootResponseModel } from '../_model';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 
@@ -15,31 +15,31 @@ import { Observable, Subject } from 'rxjs';
 })
 export class PostsService {
   public test: string = 'this is test';
-  public loadedPost!: Post[];
+  public loadedPost = [];
   public error = new Subject<string>();
   constructor(private http: HttpClient) { }
 
   onCreatePost(title: string, content: string): Observable<any> {
-    const postData = { title: title, content: content };
-    return this.http
-      .post<{ name: string }>(
-        'https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json',
-        postData,
-        { observe: 'response' }
-      );
+    const postData = { title: title, content: content }
+    return this.http.post<any>('https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json', postData , {observe:'response'});
   }
   onFetchPost<T>(): Observable<T> {
-    return this.http.get<PostResponseModel>('https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json')
-      .pipe(
-        map((response: PostResponseModel) => {
-          let postArray: T[] = [];
-          for (let key in response) {
-            postArray.push({ ...(response[key] as T), id: key });
-          }
-          return postArray as T;
-        }),
-        catchError(this.handleError)
-      );
+    let searchParams=new HttpParams();
+   searchParams= searchParams.append("key","Value");
+   searchParams= searchParams.append("anotherKey","Value");
+    const postArray: T[] = [];
+    return this.http.get<FetchResponseModel>(
+      'https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json',
+      {
+        headers: new HttpHeaders({ 'Custom-header': 'Hello' }),
+        params:searchParams
+      })
+      .pipe(map((response: FetchResponseModel) => {
+        for (let key in response) {
+          postArray.push({ ...response[key] as T, id: key });
+        }
+        return postArray as T;
+      }));
   }
   onDeletePost() {
     return this.http
@@ -52,10 +52,10 @@ export class PostsService {
       .pipe(
         tap((event) => {
           if (event.type === HttpEventType.Sent) {
-            console.log('Sending Succesfully!');
+            // console.log('Sending Succesfully!');
           }
           if (event.type === HttpEventType.Response) {
-            console.log(event);
+            // console.log(event);
           }
           // console.log(HttpEventType);
         })
@@ -67,6 +67,7 @@ export class PostsService {
     });
   }
   handleError(error: HttpErrorResponse): Observable<never> {
+    console.log(error);
     throw error.error;
   }
   // testFetch() {

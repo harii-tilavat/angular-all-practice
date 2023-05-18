@@ -18,8 +18,10 @@
                   {{item.label}}
                 </a>
                 <ul class="dropdown-menu">
-                  <li *ngFor="let subItem of item.subMenu">
-                    <a class="dropdown-item " [routerLink]="subItem.routing" [id]="'menu'+subItem.id" > {{subItem.label}} </a>
+                  <li>
+                    <!-- <a class="dropdown-item " [routerLink]="subItem.routing" [id]="'menu'+subItem.id" > {{subItem.label}} </a> -->
+                    <a class="dropdown-item " (click)="onFetchData()"> Fetch Data</a>
+                    <a class="dropdown-item " (click)="onSaveData()"> Save Data</a>
                   </li>
                 </ul>
               </li>

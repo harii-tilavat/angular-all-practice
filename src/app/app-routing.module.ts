@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestimonalComponent } from './testimonal/testimonal.component';
 import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 const routes: Routes = [
   { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'routing', loadChildren: () => import('./routing/routing-server.module').then(m => m.RoutingServerModule) },
   { path: 'observable', loadChildren: () => import('./observables/observables.module').then(m => m.ObservablesModule) },
   { path: 'forms', loadChildren: () => import('./forms/forms.module').then(m => m.TemplateFormsModule) },
-  { path:'http-request', loadChildren:()=> import('./http-requests/http-requests.module').then(m=>m.HttpRequestsModule)},
+  { path: 'http-request', loadChildren: () => import('./http-requests/http-requests.module').then(m => m.HttpRequestsModule) },
+  { path: 'auth', component: AuthenticationComponent },
   { path: 'pipes', component: PipesComponent },
   { path: 'testimonal', component: TestimonalComponent },
   { path: 'intercharge', component: InterchargeComponent },

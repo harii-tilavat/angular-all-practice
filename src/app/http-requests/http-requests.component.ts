@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { COMPILER_OPTIONS, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
-import { Post, PostResponseModel, RootResponseModel } from '../_model';
 import { PostsService } from './posts.service';
 import { Subscription } from 'rxjs';
+import { PostResponseModel, RootResponseModel } from '../_model';
 
 @Component({
   selector: 'app-http-requests',
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 export class HttpRequestsComponent implements OnInit {
   public httpForm!: FormGroup;
-  public loadedPost: Array<RootResponseModel> = [];
+  public loadedPost:any = [];
   public isFetching: boolean = false;
   public error: string | null = null;
   public errorMessage: string = 'An error occurred';
@@ -25,41 +25,46 @@ export class HttpRequestsComponent implements OnInit {
       content: new FormControl('Just a Test', [Validators.required]),
     });
 
-    this.fetchPost();
+    // this.fetchPost();
   }
-  createPost(): void {
-    this.postsService.onCreatePost(
-      this.httpForm.value.title,
-      this.httpForm.value.content
-    ).subscribe();
-  }
-  fetchPost(): void {
-    this.isFetching = true;
-    this.postsService.onFetchPost<RootResponseModel[]>().subscribe({
-      next: (res: any) => {
-        this.error = null;
-        this.isFetching = false;
-        this.loadedPost = res;
-        console.log(this.loadedPost);
+  createPost() {
+    this.postsService.onCreatePost(this.httpForm.value.title, this.httpForm.value.content).subscribe({
+      next: (res) => {
+        // console.warn(res);
       },
       error: (err: any) => {
-        console.log('Error:: ==> ', err);
-        this.error = err.error;
+        this.error=err.name;
       },
-      complete: () => { },
+      complete: () => { }
+    })
+  }
+  fetchPost() {
+    this.isFetching=true;
+    this.postsService.onFetchPost<RootResponseModel[]>().subscribe({
+      next: (res:RootResponseModel[]) => {
+        console.log(res);
+        this.loadedPost=res;
+        this.isFetching=false;
+      },
+      error: (err: any) => {
+        this.error=err.name;
+      }
     });
   }
-  deletePost(): void {
-    this.postsService.onDeletePost().subscribe(() => {
-      this.loadedPost = [];
-    });
+  deletePost() {
+    this.postsService.onDeletePost().subscribe({
+      next:()=>{
+        this.loadedPost=[];
+      }
+    })
   }
-  getJson(): void {
-    this.postsService.onGetJsonApi().subscribe((jsonResponse) => {
-      this.images = jsonResponse.images;
-      console.log(this.images);
-    });
-  }
+
+  // getJson(): void {
+  //   this.postsService.onGetJsonApi().subscribe((jsonResponse) => {
+  //     this.images = jsonResponse.images;
+  //     console.log(this.images);
+  //   });
+  // }
   onHandleError(): void {
     this.error = null;
   }

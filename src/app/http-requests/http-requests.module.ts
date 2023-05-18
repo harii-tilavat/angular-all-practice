@@ -25,9 +25,6 @@ const routes:Routes=[
   ],
   providers:[
     PostsService,
-    {
-      provide:HTTP_INTERCEPTORS,useClass:AuthIntercepterService,multi:true
-    }
   ]
 })
 export class HttpRequestsModule { }

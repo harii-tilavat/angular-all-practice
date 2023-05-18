@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MenuList } from '../_model';
+import { MenuList, Recipe } from '../_model';
+import { DataStorageService, RecipeService } from '../_services';
 
 @Component({
   selector: 'app-header',
@@ -90,6 +91,12 @@ export class HeaderComponent implements OnInit {
     },
     {
       id: 13,
+      label: 'Auth',
+      routing: '/auth',
+      subMenu: [],
+    },
+    {
+      id: 13,
       label: 'Manage',
       routing: null,
       subMenu: [
@@ -119,7 +126,7 @@ export class HeaderComponent implements OnInit {
     name: string;
     surName: string;
   }>();
-  constructor() {}
+  constructor(private dataStorageService:DataStorageService,private recipeService:RecipeService) {}
 
   ngOnInit(): void {}
   addNameSurName(): void {
@@ -128,5 +135,13 @@ export class HeaderComponent implements OnInit {
 
   onSelect(feature: string) {
     this.navigationEvent.emit(feature);
+  }
+  onFetchData():void{
+    this.dataStorageService.fetchData<Recipe[]>().subscribe((res:Recipe[])=>{
+      this.recipeService.setRecipe(res);
+    });
+  }
+  onSaveData():void{
+    this.dataStorageService.storeData();
   }
 }
