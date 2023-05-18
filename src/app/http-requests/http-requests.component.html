@@ -12,45 +12,51 @@
         </div>
         <div class="mb-3">
           <div class="send-post">
-            <button class="btn btn-primary" [disabled]="!httpForm.valid" (click)="onCreatePost()">Send Post</button>
+            <button class="btn btn-primary" [disabled]="!httpForm.valid" (click)="createPost()">Send Post</button>
           </div>
         </div>
         <div class="mb-3">
           <div class="send-post">
             <hr>
-            <button class="btn btn-primary" (click)="onFetchPost()">Fetch Post</button>
-            <button class="btn btn-danger mx-3 " (click)="onDeletePost()">Clear Post</button>
+            <button class="btn btn-primary" (click)="fetchPost()">Fetch Post</button>
+            <button class="btn btn-danger mx-3 " (click)="deletePost()" [disabled]="loadedPost.length==0">Clear
+              Post</button>
+            <!-- <button class="btn btn-warning" (click)="updateData()">Update</button> -->
+            <button class="btn btn-warning" (click)="getJson()">Fetch API</button>
+
           </div>
         </div>
         <div class="mb-3">
-          <div class="no-post" >
-            <ng-container *ngIf="loadedPost.length>0 ; else noPostAvailabel">
+          <div class="no-post">
+            <ng-container *ngIf="loadedPost.length>0">
               <ng-container *ngIf="!isFetching">
                 <div class="loaded-post">
                   <ul class="list-group">
                     <li class="list-group-item" *ngFor="let item of loadedPost">
                       <h3>{{item.title}}</h3>
                       <p> {{item.content}}</p>
+                      <p> {{item.id}}</p>
                     </li>
                   </ul>
                 </div>
               </ng-container>
             </ng-container>
-            <ng-template #noPostAvailabel>
-              <p>No post available!</p>
-            </ng-template >
+            <ng-container *ngIf="loadedPost.length<=0 && !isFetching && !error">
+              <p class="text-dark fw-bold">No post available!</p>
+            </ng-container>
+
             <ng-container *ngIf="error">
-              <div class="alert alert-danger d-flex align-items-center" role="alert">
+              <div class="alert alert-danger d-flex align-items-center mt-3" role="alert">
                 <div>
-                  <h3>An Error occurred!</h3>
+                  <h3>{{errorMessage}}</h3>
                   <p>{{error}}</p>
                   <div class="okay">
-                    <button class="btn btn-danger" (click)="onOkay()">Okay</button>
+                    <button class="btn btn-danger" (click)="onHandleError()">Okay</button>
                   </div>
                 </div>
               </div>
             </ng-container>
-            <ng-container *ngIf="isFetching && !error" >
+            <ng-container *ngIf="isFetching && !error">
               <div class="loader text-center">
                 <div class="spinner-border" role="status">
                   <span class="sr-only"></span>
@@ -62,4 +68,17 @@
       </form>
     </div>
   </div>
+  <!-- <div class="row">
+    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <ng-container >
+        <div class="row">
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12" *ngFor="let item of images">
+            <div class="cards">
+              <span><img [src]="item" alt=""></span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div> -->
 </div>
