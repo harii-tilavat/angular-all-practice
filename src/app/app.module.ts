@@ -17,6 +17,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthIntercepterService } from './http-requests/intercepter/auth-intercepter.service';
 import { LoggingInterceptor } from './http-requests/intercepter/logging-intercepter.service';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { LoadingPageComponent } from './authentication/loading-page/loading-page.component';
 
 
 @NgModule({
@@ -32,14 +33,15 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     RevercePipe,
     CapitalizePipe,
     AuthenticationComponent,
+    LoadingPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     DirectivesModule,
-    HttpClientModule,
-    ReactiveFormsModule
+    HttpClientModule
   ],
   providers: [ShoppingListService, AuthGuard,
     {
