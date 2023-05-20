@@ -18,6 +18,7 @@ import { AuthIntercepterService } from './http-requests/intercepter/auth-interce
 import { LoggingInterceptor } from './http-requests/intercepter/logging-intercepter.service';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { LoadingPageComponent } from './authentication/loading-page/loading-page.component';
+import { AuthInterceptor } from './authentication/auth-intercepter.service';
 
 
 @NgModule({
@@ -50,6 +51,9 @@ import { LoadingPageComponent } from './authentication/loading-page/loading-page
     {
       provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true
     },
+    {
+      provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

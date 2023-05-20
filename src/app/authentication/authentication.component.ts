@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthenticationService, DataStorageService } from '../_services';
 import { AuthResponseModel } from '../_model';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -17,14 +18,13 @@ export class AuthenticationComponent implements OnInit {
   public errorMessage!: string | null;
   public isRegistered: boolean = false;
   public authObs!: Observable<AuthResponseModel>;
-  constructor(private fb: FormBuilder, private authenticationService: AuthenticationService) { }
+  constructor(private fb: FormBuilder, private authenticationService: AuthenticationService,private router:Router) { }
 
   ngOnInit(): void {
     this.authForm = this.fb.group({
       authEmail: [null, [Validators.required, Validators.email]],
       authPassword: [null, [Validators.required, Validators.minLength(6)]]
     });
-
   }
   onSwithMode(): void {
     this.isLogin = !this.isLogin;
@@ -49,21 +49,19 @@ export class AuthenticationComponent implements OnInit {
 
       this.authObs.subscribe({
         next: (res) => {
+          console.log(res);
           this.error = null;
           this.isLoading = false;
+          this.router.navigate(['/recipes']);
+          // alert(res.registered?'Login SUccessfully!':'Signup Successfully!');
         },
         error: (err) => {
           this.isLoading = false;
-          console.log(err);
           this.error = err;
           this.authForm.reset();
         }
       });
       this.authForm.reset();
     }
-
-  }
-  onSubmit() {
-    console.log("Submitted");
   }
 }

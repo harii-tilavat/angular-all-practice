@@ -1,51 +1,65 @@
-<div class="row justify-content-center">
-  <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
-    <div class="form">
-      <ng-container *ngIf="isLoading">
-        <app-loading-page></app-loading-page>
-      </ng-container>
-      <form action="" [formGroup]="authForm" *ngIf="!isLoading">
-        <div class="mb-3">
-          <label for="auth-email" class="form-label fw-semibold">E-Mail</label>
-          <input type="text" id="auth-email" class="form-control" formControlName="authEmail">
-          <div class="error-message" *ngIf="authForm.controls['authEmail'].touched">
-            <span class="error" *ngIf="authForm.controls['authEmail'].errors?.['required']">Required field!</span>
-            <span class="error" *ngIf="authForm.controls['authEmail'].errors?.['email']">Invalid Email!</span>
+<div class="authentication">
+  <div class="auth-section">
+    <div class="container">
+      <div class="center-div row justify-content-center align-items-center ">
+        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+          <div class="form">
+            <ng-container *ngIf="isLoading">
+              <app-loading-page></app-loading-page>
+            </ng-container>
+            <form action="" [formGroup]="authForm" *ngIf="!isLoading">
+              <div class="heading">
+                <h1 class="pb-4">
+                  Please {{isLogin?'Login':'Signup'}} Here!
+                </h1>
+              </div>
+              <div class="mb-3">
+                <label for="auth-email" class="form-label fw-semibold">E-Mail</label>
+                <input type="text" id="auth-email" class="form-control" formControlName="authEmail">
+                <div class="error-message" *ngIf="authForm.controls['authEmail'].touched">
+                  <span class="error" *ngIf="authForm.controls['authEmail'].errors?.['required']">Required field!</span>
+                  <span class="error" *ngIf="authForm.controls['authEmail'].errors?.['email']">Invalid Email!</span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="auth-email" class="form-label fw-semibold">Password</label>
+                <input type="password" id="auth-password" class="form-control" formControlName="authPassword">
+                <div class="error-message" *ngIf="authForm.controls['authPassword'].touched">
+                  <span class="error" *ngIf="authForm.controls['authPassword'].errors?.['required']">Required
+                    field!</span>
+                  <span class="error"
+                    *ngIf="!authForm.controls['authPassword'].errors?.['required'] && !authForm.controls['authPassword'].valid">Weak
+                    Password!
+                  </span>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="auth-btn">
+                  <button type="button" class="btn btn-primary" [disabled]="!authForm.valid"
+                    (click)="onLogin()">{{isLogin?'Login':'Signup'}} </button>
+                  <button type="button" class="btn btn-primary mx-3" (click)="onSwithMode()">Switch to
+                    {{isLogin?'Login':'Signup'}}</button>
+                </div>
+              </div>
+              <ng-container *ngIf="!authForm.valid && errorMessage && !error">
+                <div class="alert alert-danger mb-3" role="alert">
+                  <h6 class="alert-heading">{{errorMessage}}😆</h6>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="error">
+                <div class="alert alert-danger mb-3" role="alert">
+                  <div>
+                    <h4 class="alert-heading"> An Error occurred! </h4>
+                    <hr>
+                  </div>
+                  <p>{{error | capitalize}}!</p>
+                </div>
+              </ng-container>
+            </form>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="auth-email" class="form-label fw-semibold">Password</label>
-          <input type="password" id="auth-password" class="form-control" formControlName="authPassword">
-          <div class="error-message" *ngIf="authForm.controls['authPassword'].touched">
-            <span class="error" *ngIf="authForm.controls['authPassword'].errors?.['required']">Required field!</span>
-            <span class="error"
-              *ngIf="!authForm.controls['authPassword'].errors?.['required'] && !authForm.controls['authPassword'].valid">Weak
-              Password!</span>
-          </div>
-        </div>
-        <div class="mb-3">
-          <div class="auth-btn">
-            <button type="button" class="btn btn-primary" [disabled]="!authForm.valid"
-              (click)="onLogin()">{{isLogin?'Login':'Signup'}} </button>
-            <button type="button" class="btn btn-primary mx-3" (click)="onSwithMode()">Switch to
-              {{!isLogin?'Login':'Signup'}}</button>
-          </div>
-        </div>
-        <ng-container *ngIf="!authForm.valid && errorMessage && !error">
-          <div class="alert alert-danger mb-3" role="alert">
-              <h6 class="alert-heading">{{errorMessage}}😆</h6>
-          </div>
-        </ng-container>
-        <ng-container *ngIf="error">
-          <div class="alert alert-danger mb-3" role="alert">
-            <div>
-              <h4 class="alert-heading"> An Error occurred! </h4>
-              <hr>
-            </div>
-            <p>{{error | capitalize}}!</p>
-          </div>
-        </ng-container>
-      </form>
+      </div>
     </div>
+
   </div>
 </div>

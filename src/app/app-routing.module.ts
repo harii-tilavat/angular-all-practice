@@ -5,7 +5,7 @@ import { InterchargeComponent } from './data-interchange/intercharge/intercharge
 import { PipesComponent } from './pipes/pipes.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 const routes: Routes = [
-  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
   { path: 'shopping', loadChildren: () => import('./shopping-list/shopping.module').then(m => m.ShoppingModule) },
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'testimonal', component: TestimonalComponent },
   { path: 'intercharge', component: InterchargeComponent },
 
-  // { path: '**', redirectTo: 'recipes', pathMatch: 'full' }
+  { path: '**', redirectTo: 'auth', pathMatch: 'full' }
 ];
 
 @NgModule({

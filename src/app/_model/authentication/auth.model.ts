@@ -1,6 +1,6 @@
 export class AuthResponseModel{
-  idToken!:string;
   email!:string;
+  idToken!:string;
   refreshToken!:string;
   expireIn!:string;
   localId!:string;
