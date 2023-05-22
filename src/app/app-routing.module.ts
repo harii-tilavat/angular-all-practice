@@ -4,9 +4,10 @@ import { TestimonalComponent } from './testimonal/testimonal.component';
 import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { AuthenticationGuard } from './_services';
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
+  { path: 'recipes',canActivate:[AuthenticationGuard], loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
   { path: 'shopping', loadChildren: () => import('./shopping-list/shopping.module').then(m => m.ShoppingModule) },
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   { path: 'accounts', loadChildren: () => import('./accounts/accounts.module').then(m => m.AccountsModule) },

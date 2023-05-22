@@ -38,7 +38,7 @@
                   <button type="button" class="btn btn-primary" [disabled]="!authForm.valid"
                     (click)="onLogin()">{{isLogin?'Login':'Signup'}} </button>
                   <button type="button" class="btn btn-primary mx-3" (click)="onSwithMode()">Switch to
-                    {{isLogin?'Login':'Signup'}}</button>
+                    {{!isLogin?'Login':'Signup'}}</button>
                 </div>
               </div>
               <ng-container *ngIf="!authForm.valid && errorMessage && !error">

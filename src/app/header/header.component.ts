@@ -121,15 +121,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private dataStorageService: DataStorageService, private recipeService: RecipeService, private authenticationService: AuthenticationService , private router:Router) { }
 
   ngOnInit(): void {
-    console.log(this.isAuthenticated);
     this.userSub = this.authenticationService.user.subscribe({
       next: (user: User) => {
-        console.log('subscibing!');
-        this.isAuthenticated = !!user;
+        this.isAuthenticated = Object.values(user).every(value=>value);
       }
     });
-    console.log("Subscribed! ", this.userSub);
-    console.log(this.isAuthenticated);
   }
   addNameSurName(): void {
     this.haritDataSend.emit({ name: this.headerTitle, surName: this.subTitle });
