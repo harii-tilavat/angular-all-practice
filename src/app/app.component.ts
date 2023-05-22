@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AuthenticationService } from './_services';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,11 @@ export class AppComponent implements OnInit {
   public flag: boolean = true;
   public check: string = 'recipe';
 
-  
-  constructor() { }
+
+  constructor(private authenticationService:AuthenticationService) { }
 
   ngOnInit(): void {
+    this.authenticationService.autoLogin();
   }
   recipe(): void {
     this.flag = !this.flag;

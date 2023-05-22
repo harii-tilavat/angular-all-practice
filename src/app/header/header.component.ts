@@ -1,12 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MenuList } from '../_model';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { MenuList, Recipe, User } from '../_model';
+import { AuthService, AuthenticationService, DataStorageService, RecipeService } from '../_services';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   @Input() demo!: string;
   @Output() navigationEvent = new EventEmitter<string>();
   public subTitle!: string;
@@ -37,7 +40,7 @@ export class HeaderComponent implements OnInit {
     {
       id: 4,
       label: 'Routing',
-      routing: ['routing','home'],
+      routing: ['routing', 'home'],
       subMenu: [],
     },
     {
@@ -59,12 +62,6 @@ export class HeaderComponent implements OnInit {
       subMenu: [],
     },
     {
-      id: 8,
-      label: 'Todo',
-      routing: '/todo-app',
-      subMenu: [],
-    },
-    {
       id: 9,
       label: 'Observable',
       routing: '/observable',
@@ -73,7 +70,7 @@ export class HeaderComponent implements OnInit {
     {
       id: 10,
       label: 'Forms',
-      routing: '/forms',
+      routing: ['/forms','form1'],
       subMenu: [],
     },
     {
@@ -115,13 +112,21 @@ export class HeaderComponent implements OnInit {
     },
 
   ];
+  public userSub!: Subscription;
   @Output() haritDataSend = new EventEmitter<{
     name: string;
     surName: string;
   }>();
-  constructor() {}
+  public isAuthenticated: boolean = false;
+  constructor(private dataStorageService: DataStorageService, private recipeService: RecipeService, private authenticationService: AuthenticationService , private router:Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userSub = this.authenticationService.user.subscribe({
+      next: (user: User) => {
+        this.isAuthenticated = Object.values(user).every(value=>value);
+      }
+    });
+  }
   addNameSurName(): void {
     this.haritDataSend.emit({ name: this.headerTitle, surName: this.subTitle });
   }
@@ -129,4 +134,20 @@ export class HeaderComponent implements OnInit {
   onSelect(feature: string) {
     this.navigationEvent.emit(feature);
   }
+  onFetchData(): void {
+    this.dataStorageService.fetchData<Recipe[]>().subscribe((res: Recipe[]) => {
+
+    });
+  }
+  onSaveData(): void {
+    this.dataStorageService.storeData();
+  }
+  onLogout():void {
+    this.authenticationService.onLogout();
+    this.isAuthenticated=false;
+  }
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
+
 }

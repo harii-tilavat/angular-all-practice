@@ -1,0 +1,30 @@
+.error-message {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  color: red;
+  .error {
+    position: absolute;
+  }
+}
+.form-label{
+  font-weight: 500;
+}
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+input.ng-valid.ng-touched {
+  border: 2px solid green;
+}
+// .authentication{
+//   height: 50vh;
+//   .auth-section{
+//     position: relative;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
+// }
+.center-div{
+  height: 70vh;
+}

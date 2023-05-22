@@ -10,7 +10,7 @@ import { FormAssignment2Component } from './form-assignment2/form-assignment2.co
 
 const routes:Routes=[
   {path:'', component:FormsComponent,children:[
-    {path:'form1',component:Form1Component},
+    {path:'form1',component:Form1Component, },
     {path:'form2',component:Form2Component},
     {path:'assignment1',component:FormAssignment1Component},
     {path:'assignment2',component:FormAssignment2Component},

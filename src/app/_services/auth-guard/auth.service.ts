@@ -10,10 +10,10 @@ export class AuthService{
   constructor(){}
   isAuthenticated():Promise<boolean>{
     return new Promise(
-      (resolve,reject)=>{
+      (resolve)=>{
         setTimeout(()=>{
           resolve(this.loggedIn);
-        },100);
+        },1000);
       }
     );
   }

@@ -1,4 +1,4 @@
-<div class="container">
+
   <div class="row">
     <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
       <form action="" [formGroup]="recipeForm">
@@ -57,9 +57,6 @@
         </div>
         <div class="mb-3">
           <div class="confirm mt-4">
-            <!-- <button type="submit" [disabled]="!recipeForm.valid" (submit)="onSaveRecipe()">
-              Save
-            </button> -->
             <button type="button" class="btn btn-success" (click)="onSaveRecipe()" [disabled]="!recipeForm.valid">Save</button>
             <button type="button" class="btn btn-danger mx-2" (click)="onCancleRecipe()">Cancle</button>
           </div>
@@ -67,4 +64,4 @@
       </form>
     </div>
   </div>
-</div>
+
