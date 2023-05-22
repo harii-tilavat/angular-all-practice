@@ -4,7 +4,6 @@ import { AuthenticationService, DataStorageService } from '../_services';
 import { AuthResponseModel } from '../_model';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
@@ -49,7 +48,6 @@ export class AuthenticationComponent implements OnInit {
 
       this.authObs.subscribe({
         next: (res) => {
-          console.log(res);
           this.error = null;
           this.isLoading = false;
           this.router.navigate(['/recipes']);
@@ -58,10 +56,16 @@ export class AuthenticationComponent implements OnInit {
         error: (err) => {
           this.isLoading = false;
           this.error = err;
+        },
+        complete:()=>{
           this.authForm.reset();
+          // this.isLoading = false;
         }
       });
       this.authForm.reset();
     }
+  }
+  onClose():void{
+    this.error=null;
   }
 }

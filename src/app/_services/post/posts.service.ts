@@ -6,9 +6,9 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FetchResponseModel, Post, PostResponseModel, RootResponseModel } from '../_model';
-import { catchError, map, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
+import { FetchResponseModel } from 'src/app/_model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,18 +21,18 @@ export class PostsService {
 
   onCreatePost(title: string, content: string): Observable<any> {
     const postData = { title: title, content: content }
-    return this.http.post<any>('https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json', postData , {observe:'response'});
+    return this.http.post<any>('https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json', postData, { observe: 'response' });
   }
   onFetchPost<T>(): Observable<T> {
-    let searchParams=new HttpParams();
-   searchParams= searchParams.append("key","Value");
-   searchParams= searchParams.append("anotherKey","Value");
+    let searchParams = new HttpParams();
+    searchParams = searchParams.append("key", "Value");
+    searchParams = searchParams.append("anotherKey", "Value");
     const postArray: T[] = [];
     return this.http.get<FetchResponseModel>(
       'https://recipe-book-f8918-default-rtdb.firebaseio.com/posts.json',
       {
         headers: new HttpHeaders({ 'Custom-header': 'Hello' }),
-        params:searchParams
+        params: searchParams
       })
       .pipe(map((response: FetchResponseModel) => {
         for (let key in response) {

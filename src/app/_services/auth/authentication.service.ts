@@ -46,7 +46,6 @@ export class AuthenticationService {
   }
   autoLogin(): void {
     const userData: { email: string, id: string, _token: string, _tokenExpirationDate: string } = JSON.parse(localStorage.getItem('userData') as string);
-    console.log("Value of User data: ", userData);
     if (!userData) {
       return;
     }
@@ -81,7 +80,6 @@ export class AuthenticationService {
   }
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-    console.warn(expirationDate);
     const user: User = new User(email, userId, token, expirationDate);
     // console.warn('Tap===',user);
     localStorage.setItem('userData', JSON.stringify(user));

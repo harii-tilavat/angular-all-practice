@@ -34,6 +34,6 @@ const routes: Routes = [
     // DropdownDirective
   ],
   imports: [CommonModule, RouterModule.forChild(routes), DirectivesModule,ReactiveFormsModule,HttpClientModule],
-  exports: [RecipeDetailsComponent, RecipeListComponent, RecipeItemComponent],
+  exports: [],
 })
 export class RecipesModule {}

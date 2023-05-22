@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HttpRequestsComponent } from './http-requests.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { PostsService } from './posts.service';
-import { AuthIntercepterService } from './intercepter/auth-intercepter.service';
+import { HttpClientModule } from '@angular/common/http';
+import { PostsService } from '../_services';
 
-const routes:Routes=[
-  {path:'', component:HttpRequestsComponent},
-  {path:'**', redirectTo:'', pathMatch:'full'}
+const routes: Routes = [
+  { path: '', component: HttpRequestsComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ]
 
 @NgModule({
@@ -23,7 +22,7 @@ const routes:Routes=[
     RouterModule.forChild(routes),
     HttpClientModule,
   ],
-  providers:[
+  providers: [
     PostsService,
   ]
 })

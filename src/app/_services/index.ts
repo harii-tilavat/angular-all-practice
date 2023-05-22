@@ -10,3 +10,4 @@ export * from './recipes/recipe.service';
 export * from './recipes/data-storage.service';
 export * from './auth/authentication.service';
 export * from './auth/guards/authentication.guard';
+export * from './post/posts.service';

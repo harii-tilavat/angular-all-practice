@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { TestimonalComponent } from './testimonal/testimonal.component';
 import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
 import { PipesComponent } from './pipes/pipes.component';

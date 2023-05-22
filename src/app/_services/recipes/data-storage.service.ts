@@ -15,7 +15,6 @@ export class DataStorageService {
       .pipe(
         take(1),
         exhaustMap((user:User) => {
-          console.log('User=======',user);
           return this.http.get<T>('https://recipe-book-f8918-default-rtdb.firebaseio.com/recipes.json',
           {
             params:new HttpParams().set('auth',user.token)
@@ -37,7 +36,6 @@ export class DataStorageService {
     const recipes: Recipe[] = this.recipeService.getRecipes();
     this.http.put<Recipe[]>('https://recipe-book-f8918-default-rtdb.firebaseio.com/recipes.json', recipes)
       .subscribe((res) => {
-        console.log(res);
       });
   }
 }

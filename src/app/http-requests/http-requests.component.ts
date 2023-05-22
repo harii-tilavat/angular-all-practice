@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { COMPILER_OPTIONS, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
-import { PostsService } from './posts.service';
 import { Subscription } from 'rxjs';
 import { PostResponseModel, RootResponseModel } from '../_model';
+import { PostsService } from '../_services';
 
 @Component({
   selector: 'app-http-requests',

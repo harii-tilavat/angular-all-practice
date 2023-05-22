@@ -9,16 +9,12 @@ import { HeaderComponent } from './header/header.component';
 import { DataInterchangeComponent } from './data-interchange/data-interchange.component';
 import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
 import { DirectivesModule } from './_directives/directives.module';
-import { AuthGuard, DataStorageService, ShoppingListService } from './_services';
+import { ShoppingListService } from './_services';
 import { TestimonalComponent } from './testimonal/testimonal.component';
-import { ShortenPipe, FilterPipe, RevercePipe, CapitalizePipe } from './_pipes';
-import { PipesComponent } from './pipes/pipes.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthIntercepterService } from './http-requests/intercepter/auth-intercepter.service';
-import { LoggingInterceptor } from './http-requests/intercepter/logging-intercepter.service';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { LoadingPageComponent } from './authentication/loading-page/loading-page.component';
-import { AuthInterceptor } from './authentication/auth-intercepter.service';
+import { SharedModule } from './shared/shared.module';
+import { AuthInterceptor, LoggingInterceptor, TestAuthIntercepter } from './_intercepter';
 
 
 @NgModule({
@@ -28,13 +24,7 @@ import { AuthInterceptor } from './authentication/auth-intercepter.service';
     DataInterchangeComponent,
     InterchargeComponent,
     TestimonalComponent,
-    PipesComponent,
-    ShortenPipe,
-    FilterPipe,
-    RevercePipe,
-    CapitalizePipe,
     AuthenticationComponent,
-    LoadingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,17 +32,18 @@ import { AuthInterceptor } from './authentication/auth-intercepter.service';
     FormsModule,
     ReactiveFormsModule,
     DirectivesModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
   ],
-  providers: [ShoppingListService, AuthGuard,
+  providers: [ShoppingListService,
     {
-      provide: HTTP_INTERCEPTORS, useClass: AuthIntercepterService, multi: true
+      provide: HTTP_INTERCEPTORS, useClass: TestAuthIntercepter, multi: true
     },
     {
       provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true
     },
     {
-      provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
     }
   ],
   bootstrap: [AppComponent]
