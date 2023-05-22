@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'testimonal', component: TestimonalComponent },
   { path: 'intercharge', component: InterchargeComponent },
 
-  { path: '**', redirectTo: 'auth', pathMatch: 'full' }
+  { path: '**', redirectTo: 'recipes', pathMatch: 'full' }
 ];
 
 @NgModule({
