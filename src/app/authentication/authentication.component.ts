@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationComponent implements OnInit {
   public authForm!: FormGroup;
-  public isLogin: boolean = true;
+  public isLogin: boolean = false;
   public isLoading: boolean = false;
   public error!: string | null;
   public errorMessage!: string | null;
@@ -21,8 +21,8 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit(): void {
     this.authForm = this.fb.group({
-      authEmail: ['harit@123gmail.com', [Validators.required, Validators.email]],
-      authPassword: [12345678, [Validators.required, Validators.minLength(6)]]
+      authEmail: [null, [Validators.required, Validators.email]],
+      authPassword: [null, [Validators.required, Validators.minLength(6)]]
     });
   }
   onSwithMode(): void {
@@ -34,12 +34,18 @@ export class AuthenticationComponent implements OnInit {
   }
   onLogin(): void {
     this.isLoading = true;
+    this.authenticationService.testLogin(this.authForm.value.authEmail,this.authForm.value.authPassword).subscribe({
+      next:(res)=>{
+        console.log(res);
+      }
+    });
     if (!this.authForm.valid) {
       this.isLoading = false;
       this.errorMessage = 'Please fill all required fields!';
     }
     else {
       if (this.isLogin) {
+
         this.authObs = this.authenticationService.onSignIn<AuthResponseModel>(this.authForm.value.authEmail, this.authForm.value.authPassword);
       }
       else {

@@ -15,6 +15,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthInterceptor, LoggingInterceptor, TestAuthIntercepter } from './_intercepter';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AuthInterceptor, LoggingInterceptor, TestAuthIntercepter } from './_int
     InterchargeComponent,
     TestimonalComponent,
     AuthenticationComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

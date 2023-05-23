@@ -86,4 +86,8 @@ export class AuthenticationService {
     this.user.next(user);
     this.autoLogout(expiresIn * 1000);
   }
+  testLogin(email: string, password: string): Observable<any> {
+    const postData = { email: email, password: password }
+    return this.http.post('https://user-data-83d6a-default-rtdb.firebaseio.com/user-data.json', postData)
+  }
 }

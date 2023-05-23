@@ -61,12 +61,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       routing: '/users/active',
       subMenu: [],
     },
-    {
-      id: 9,
-      label: 'Observable',
-      routing: '/observable',
-      subMenu: [],
-    },
+    // {
+    //   id: 9,
+    //   label: 'Observable',
+    //   routing: '/observable',
+    //   subMenu: [],
+    // },
     {
       id: 10,
       label: 'Forms',

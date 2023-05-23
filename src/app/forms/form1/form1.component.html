@@ -32,7 +32,7 @@
                 <option value="teacher">Your First Teacher?</option>
               </select>
             </div>
-            <div class="mb-4">
+            <!-- <div class="mb-4">
               <ng-container *ngFor="let item of gender; let i = index">
                 <input type="radio" [id]="'gender-' + i" [name]="'gender'" (click)="onChangeRadio($event)"
                   [value]="item" ngModel />
@@ -40,7 +40,7 @@
                   {{ item }}
                 </label>
               </ng-container>
-            </div>
+            </div> -->
             <div class="mb-4">
               <label for="question-answer" class="form-label">Your Message</label>
               <textarea class="form-control" id="question-answer" name="qna" [(ngModel)]="questionAnswer"
