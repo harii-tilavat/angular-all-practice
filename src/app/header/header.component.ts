@@ -126,6 +126,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.isAuthenticated = Object.values(user).every(value=>value);
       }
     });
+    this.onFetchData();
+    this.router.navigate(['/recipes']);
   }
   addNameSurName(): void {
     this.haritDataSend.emit({ name: this.headerTitle, surName: this.subTitle });

@@ -22,8 +22,9 @@
               <ul class="dropdown-menu">
                 <li>
                   <!-- <a class="dropdown-item " [routerLink]="subItem.routing" [id]="'menu'+subItem.id" > {{subItem.label}} </a> -->
-                  <a class="dropdown-item " (click)="onFetchData()"> Fetch Data</a>
+                  <a class="dropdown-item " (click)="onFetchData()" > Fetch Data</a>
                   <a class="dropdown-item " (click)="onSaveData()"> Save Data</a>
+                  <!-- <a class="dropdown-item " [routerLink]="['/standalone']">Standalone</a> -->
                   <a class="dropdown-item fw-bold" (click)="onLogout()"  *ngIf="isAuthenticated">Logout</a>
                 </li>
               </ul>

@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     MainDemoComponent,
     ServerElementComponent,
-    PromiseObservableComponent
+    PromiseObservableComponent,
   ],
   imports: [
     CommonModule,
