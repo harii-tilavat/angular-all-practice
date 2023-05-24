@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationComponent implements OnInit {
   public authForm!: FormGroup;
-  public isLogin: boolean = false;
+  public isLogin: boolean = true;
   public isLoading: boolean = false;
   public error!: string | null;
   public errorMessage!: string | null;
@@ -21,8 +21,8 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit(): void {
     this.authForm = this.fb.group({
-      authEmail: [null, [Validators.required, Validators.email]],
-      authPassword: [null, [Validators.required, Validators.minLength(6)]]
+      authEmail: ['harit@123gmail.com', [Validators.required, Validators.email]],
+      authPassword: [12345678, [Validators.required, Validators.minLength(6)]]
     });
   }
   onSwithMode(): void {

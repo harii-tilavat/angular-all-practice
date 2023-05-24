@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'forms', loadChildren: () => import('./forms/forms.module').then(m => m.TemplateFormsModule) },
   { path: 'http-request', loadChildren: () => import('./http-requests/http-requests.module').then(m => m.HttpRequestsModule) },
   { path: 'standalone', loadChildren: () => import('./practice-component/stand-alone/stand-alone.module').then(m => m.StandAloneModule) },
+  { path: 'signals', loadChildren:()=> import('./signals/signals.module').then(m=>m.SignalsModule)},
   { path: 'auth', component: AuthenticationComponent },
   { path: 'pipes', component: PipesComponent },
   { path: 'testimonal', component: TestimonalComponent },
