@@ -4,7 +4,7 @@ import { ObservablesComponent } from './observables.component';
 import { ObsHomeComponent } from './obs-home/obs-home.component';
 import { ObsUserComponent } from './obs-user/obs-user.component';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from '../routing/home/home.component';
+import { HomeComponent } from '../../routing/home/home.component';
 
 const routes: Routes = [
   {

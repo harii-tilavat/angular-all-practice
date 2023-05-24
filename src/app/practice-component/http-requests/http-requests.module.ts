@@ -4,7 +4,7 @@ import { HttpRequestsComponent } from './http-requests.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PostsService } from '../_services';
+import { PostsService } from '../../_services';
 
 const routes: Routes = [
   { path: '', component: HttpRequestsComponent },

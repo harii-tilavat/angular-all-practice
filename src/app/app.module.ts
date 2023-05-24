@@ -6,11 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './header/header.component';
-import { DataInterchangeComponent } from './data-interchange/data-interchange.component';
-import { InterchargeComponent } from './data-interchange/intercharge/intercharge.component';
+import { DataInterchangeComponent } from './practice-component/data-interchange/data-interchange.component';
+import { InterchargeComponent } from './practice-component/data-interchange/intercharge/intercharge.component';
 import { DirectivesModule } from './_directives/directives.module';
 import { ShoppingListService } from './_services';
-import { TestimonalComponent } from './testimonal/testimonal.component';
+import { TestimonalComponent } from './practice-component/testimonal/testimonal.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { SharedModule } from './shared/shared.module';

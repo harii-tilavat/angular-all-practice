@@ -4,6 +4,7 @@ import { MainDemoComponent } from './main-demo/main-demo.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { PromiseObservableComponent } from './promise-observable/promise-observable.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgrxComponent } from './ngrx/ngrx.component';
 
 
 
@@ -12,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MainDemoComponent,
     ServerElementComponent,
     PromiseObservableComponent,
+    NgrxComponent,
   ],
   imports: [
     CommonModule,
