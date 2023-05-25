@@ -13,7 +13,6 @@ import { NgrxComponent } from './ngrx/ngrx.component';
     MainDemoComponent,
     ServerElementComponent,
     PromiseObservableComponent,
-    NgrxComponent,
   ],
   imports: [
     CommonModule,

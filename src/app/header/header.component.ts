@@ -87,8 +87,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
     {
       id: 12,
-      label: 'Signals',
-      routing: '/signals',
+      label: 'ngrx',
+      routing: '/ngrx',
       subMenu: [],
     },
     {
@@ -131,7 +131,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       next: (user: User) => {
         this.isAuthenticated = Object.values(user).every(value => value);
         this.onFetchData();
-        this.router.navigate(['/recipes']);
+        // this.router.navigate(['/ngrx']);
       }
     });
   }
