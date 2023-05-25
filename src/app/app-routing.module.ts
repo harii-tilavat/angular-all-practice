@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'http-request', loadChildren: () => import('./practice-component/http-requests/http-requests.module').then(m => m.HttpRequestsModule) },
   { path: 'standalone', loadChildren: () => import('./practice-component/stand-alone/stand-alone.module').then(m => m.StandAloneModule) },
   { path: 'signals', loadChildren:()=> import('./practice-component/signals/signals.module').then(m=>m.SignalsModule)},
-  { path: 'ngrx', loadChildren:()=> import('./practice-component/ngrx/ngrx.module').then(m=>m.NgrxModule)},
+  { path: 'ngrx', loadChildren:()=> import('./practice-component/ngrx-crud/ngrx-crud.module').then(m=>m.NgrxCrudModule)},
   { path: 'auth', component: AuthenticationComponent },
   { path: 'pipes', component: PipesComponent },
   { path: 'testimonal', component: TestimonalComponent },
