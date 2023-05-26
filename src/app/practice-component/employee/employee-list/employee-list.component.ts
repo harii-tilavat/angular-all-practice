@@ -19,6 +19,7 @@ export class EmployeeListComponent implements OnInit {
     this.empService.employeeChange.subscribe({
       next: (data: Employee[]) => {
         this.employeeList = data;
+        console.log("Data",data);
       }
     })
   }

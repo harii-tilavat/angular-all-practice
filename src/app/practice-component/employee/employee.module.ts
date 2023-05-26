@@ -6,6 +6,7 @@ import { EmployeeComponent } from './employee.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
+import { LoaderSuccessComponent } from './loader-success/loader-success.component';
 
 const routes:Routes=[
   { path:'', component:EmployeeComponent}
@@ -16,7 +17,8 @@ const routes:Routes=[
     EmployeeListComponent,
     EmployeeDetailsComponent,
     EmployeeComponent,
-    EmployeeUpdateComponent
+    EmployeeUpdateComponent,
+    LoaderSuccessComponent
   ],
   imports: [
     CommonModule,

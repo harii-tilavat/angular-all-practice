@@ -96,8 +96,12 @@ export class EmployeeService {
     console.log("IN details:", data);
   }
 
-  deleteEmpData(index: number) {
+  deleteEmpData(index: number):void {
     this.employeeList.splice(index, 1);
+    this.employeeChange.next(this.employeeList.slice());
+  }
+  updateEmpData(index:number,updatedData:Employee):void{
+    this.employeeList[index]=updatedData;
     this.employeeChange.next(this.employeeList.slice());
   }
 }
