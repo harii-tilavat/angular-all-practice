@@ -1,0 +1,75 @@
+<ng-container *ngIf="updatedMessage">
+  <app-loader-success [message]="updatedMessage"></app-loader-success>
+</ng-container>
+<div class="row justify-content-center">
+  <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+    <div class="head">
+      <h2> {{'Employee Information'}}</h2>
+      <hr>
+    </div>
+    <div class="employee-details">
+      <form action="" [formGroup]="empForm">
+        <div class="form-group border-bottom">
+          <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+              <label for="e-name" class="form-label">Name:</label>
+            </div>
+            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+              <input type="text" class="form-control" formControlName="name" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group border-bottom">
+          <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+              <label for="phone" class="form-label">Phone:</label>
+            </div>
+            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+              <input type="text" class="form-control" id="phone" formControlName="number" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group border-bottom">
+          <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+              <label for="salary" class="form-label">Salary:</label>
+            </div>
+            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+              <input type="text" class="form-control" id="salary" formControlName="salary" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group border-bottom">
+          <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+              <label for="department" class="form-label">Department:</label>
+            </div>
+            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+              <input type="text" class="form-control" id="department" formControlName="department" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group border-bottom">
+          <div class="row">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+              <label for="email" class="form-label">Email:</label>
+            </div>
+            <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+              <input type="text" class="form-control" id="email" formControlName="email" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <div class="controls">
+            <button class="btn btn-dark" (click)="onSave()" [disabled]="!empForm.valid || editMode">Save</button>
+            <button class="btn btn-dark mx-3" (click)="onUpdate()" [disabled]="!editMode || !empForm.valid ">Update</button>
+            <button class="btn btn-dark " (click)="empForm.reset()">Clear</button>
+          </div>
+        </div>
+        <ng-container *ngIf="!empForm.valid && empForm.touched">
+          <!-- <app-error-page></app-error-page> -->
+        </ng-container>
+      </form>
+    </div>
+  </div>
+</div>

@@ -87,8 +87,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     },
     {
       id: 12,
-      label: 'ngrx',
-      routing: '/ngrx',
+      label: 'Employee',
+      routing: '/employee',
       subMenu: [],
     },
     {
