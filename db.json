@@ -1,0 +1,18 @@
+{
+  "customers":[
+    {
+      "name":"John Doe",
+      "phone":"9876543212",
+      "address":"123 sun street",
+      "membership":"Platinum",
+      "id":1
+    },
+    {
+      "name":"Mary Johnson",
+      "phone":"8978675665",
+      "address":"893 vadodara",
+      "membership":"Pro",
+      "id":2
+    }
+  ]
+}

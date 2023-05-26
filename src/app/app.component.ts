@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AuthenticationService } from './_services';
+import { AuthenticationService, RecipeService } from './_services';
 
 @Component({
   selector: 'app-root',

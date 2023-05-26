@@ -1,0 +1,14 @@
+<div class="backdrop"  (click)="onClose()">
+  <div class="center-div">
+    <div class="alert alert-danger mb-3" role="alert">
+      <div>
+        <h4 class="alert-heading"> An Error occurred! </h4>
+        <hr>
+      </div>
+      <p>{{error}}!</p>
+      <div class="text-end">
+        <button class="btn btn-danger" (click)="onClose()" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -61,16 +61,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
       routing: '/users/active',
       subMenu: [],
     },
-    {
-      id: 9,
-      label: 'Observable',
-      routing: '/observable',
-      subMenu: [],
-    },
+    // {
+    //   id: 9,
+    //   label: 'Observable',
+    //   routing: '/observable',
+    //   subMenu: [],
+    // },
     {
       id: 10,
       label: 'Forms',
-      routing: ['/forms','form1'],
+      routing: ['/forms', 'form1'],
       subMenu: [],
     },
     {
@@ -83,6 +83,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       id: 12,
       label: 'Http',
       routing: '/http-request',
+      subMenu: [],
+    },
+    {
+      id: 12,
+      label: 'Employee',
+      routing: '/employee',
       subMenu: [],
     },
     {
@@ -118,12 +124,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     surName: string;
   }>();
   public isAuthenticated: boolean = false;
-  constructor(private dataStorageService: DataStorageService, private recipeService: RecipeService, private authenticationService: AuthenticationService , private router:Router) { }
+  constructor(private dataStorageService: DataStorageService, private recipeService: RecipeService, private authenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.userSub = this.authenticationService.user.subscribe({
       next: (user: User) => {
-        this.isAuthenticated = Object.values(user).every(value=>value);
+        this.isAuthenticated = Object.values(user).every(value => value);
+        this.onFetchData();
+        // this.router.navigate(['/ngrx']);
       }
     });
   }
@@ -142,9 +150,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onSaveData(): void {
     this.dataStorageService.storeData();
   }
-  onLogout():void {
+  onLogout(): void {
     this.authenticationService.onLogout();
-    this.isAuthenticated=false;
+    this.isAuthenticated = false;
   }
   ngOnDestroy(): void {
     this.userSub.unsubscribe();

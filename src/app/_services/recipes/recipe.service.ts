@@ -7,7 +7,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class RecipeService {
-  public recipeChange=new Subject<Recipe[]>;
+  public recipeChange = new Subject<Recipe[]>;
   private recipes: Recipe[] = [
     new Recipe(
       'Indian Pulao',
@@ -23,9 +23,9 @@ export class RecipeService {
       [new Ingredient('Meat', 1), new Ingredient('Buns', 2)]
     ),
   ];
-  constructor(private shoppingListService: ShoppingListService) {}
-  setRecipe(recipes:Recipe[]){
-    this.recipes=recipes;
+  constructor(private shoppingListService: ShoppingListService) { }
+  setRecipe(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.recipeChange.next(this.recipes.slice());
   }
   getRecipes() {
@@ -38,17 +38,17 @@ export class RecipeService {
   toAddShoppingList(ingredient: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredient);
   }
-  toAddRecipe(recipe:Recipe):void{
+  toAddRecipe(recipe: Recipe): void {
     this.recipes.push(recipe);
     console.warn(this.recipes);
     this.recipeChange.next(this.recipes.slice());
   }
-  toUpdateRecipe(index:number, newRecipe:Recipe):void{
-    this.recipes[index]=newRecipe;
+  toUpdateRecipe(index: number, newRecipe: Recipe): void {
+    this.recipes[index] = newRecipe;
     this.recipeChange.next(this.recipes.slice());
   }
-  toDeleteRecipe(index:number){
-    this.recipes.splice(index,1);
+  toDeleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
     this.recipeChange.next(this.recipes.slice());
     console.log(this.recipes);
   }
